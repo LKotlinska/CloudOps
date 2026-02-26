@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('flavor_product', function (Blueprint $table) {
             $table->foreignId('product_id')
-                ->constrained()
+                ->constrained('products')
                 ->cascadeOnDelete();
             $table->foreignId('flavor_id')
-                ->constrained()
+                ->constrained('flavors')
                 ->cascadeOnDelete();
+
+            $table->primary(['product_id', 'flavor_id']); // avoid duplication
+            $table->timestamps();
         });
     }
 
