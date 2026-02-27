@@ -20,7 +20,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -28,7 +28,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|min:3|max:100',
+            'description' => 'required|string|min:3|max:250',
+            'price' => 'required|numeric|gt:1',
+            'stock' => 'required|integer|gte:0',
+            'category' => 'required|exists:categories,id',
+            'brand' => 'required|exists:brands,id',
+            'strength' => 'required|numeric|gte:0',
+            'volume' => 'required|numeric|gte:0',
+        ]);
     }
 
     /**
