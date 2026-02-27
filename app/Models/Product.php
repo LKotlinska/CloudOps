@@ -19,7 +19,5 @@ class Product extends Model
         'volume_ml',
         'category_id',
         'brand_id',
-        'flavor_id',
-        'color_id',
     ];
 }
