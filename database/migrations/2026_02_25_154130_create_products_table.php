@@ -21,8 +21,6 @@ return new class extends Migration
             $table->unsignedInteger('volume_ml')->nullable(true);
             $table->foreignId('category_id')->constrained('categories', 'id');
             $table->foreignId('brand_id')->constrained('brands', 'id');
-            $table->foreignId('flavor_id')->constrained('flavors', 'id');
-            $table->foreignId('color_id')->constrained('colors', 'id');
             $table->timestamps();
         });
     }
