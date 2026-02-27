@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->boolean('has_podsystem');
             $table->unsignedInteger('puff_count');
-            $table->foreignId('product_id')->constrained('products', 'id');
-            $table->foreignId('color_id')->constrained('colors', 'id');
+            $table->foreignId('product_id')->constrained('products', 'id')->cascadeOnDelete();
+            $table->foreignId('color_id')->constrained('colors', 'id')->restrictOnDelete();
+            $table->timestamps();
         });
     }
 
