@@ -1,6 +1,16 @@
-<form action="" method="POST">
-    @csrf
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body>
 
+<form id="add-form" action="{{ route('products.store') }}" method="POST">
+    @csrf
+    
     <label for="name">Product name:</label>
     <input 
         type="text" 
@@ -11,13 +21,12 @@
     />
 
     <label for="description">Description:</label>
-    <input 
-        type="text" 
+    <textarea 
         id="description" 
-        name="description" 
-        placeholder="e.g. Product is rechargable... "
+        name="description"
+        placeholder="e.g. Vape startkit"
         required
-    />
+    ></textarea>
 
     <label for="price">Price:</label>
     <input
@@ -32,7 +41,7 @@
     <input
     type="number"
     placeholder="e.g. 12"
-    min="1"
+    min="0"
     />
 
     <!-- Product type and brand demo / these will need to be populated-->
@@ -67,12 +76,8 @@
         required
     />
 
-    <label for="battery">Battery capacity in mah:</label>
-    <input
-        type="number"
-        min="1"
-        placeholder="e.g. 1000"
-        required
-    />
-
+    <button type="submit">Add product</button>
 </form>
+
+</body>
+</html>
