@@ -8,6 +8,8 @@
 </head>
 <body>
 
+@include('errors')
+
 <form id="add-form" action="{{ route('products.store') }}" method="POST">
     @csrf
     
