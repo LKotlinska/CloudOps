@@ -17,6 +17,7 @@ class Product extends Model
         'stock',
         'nicotine_strength_mg',
         'volume_ml',
-        'battery_capacity_mah',
+        'category_id',
+        'brand_id',
     ];
 }
