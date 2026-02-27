@@ -30,9 +30,10 @@
 
     <label for="price">Price:</label>
     <input
-        type="number" 
-        min="1" 
-        step="any" 
+        type="number"
+        name="price"
+        min="1"
+        step="any"
         placeholder="e.g. 10.90 "
         required
     />
@@ -40,37 +41,46 @@
     <label for="stock">In stock:</label>
     <input
     type="number"
+    name="stock"
     placeholder="e.g. 12"
     min="0"
     />
 
     <!-- Product type and brand demo / these will need to be populated-->
-    <label for="category">Product type:</label>
-    <select id="category" name="categories" required>
-        <option value="">Option1</option>
-        <option value="">Option2</option>
-        <option value="">Option3</option>
+    <label for="category_id">Product type:</label>
+    <select id="category" name="category_id" required>
+        @foreach ($categories as $category)
+            <option value="{{ $category->id }}">
+                {{ ucfirst($category->name) }}
+            </option>
+        @endforeach
     </select>
 
-    <label for="brand">Brand name:</label>
-    <select id="brand" name="brands" required>
-        <option value="">Option1</option>
-        <option value="">Option2</option>
-        <option value="">Option3</option>
+    <label for="brand_id">Brand name:</label>
+    <select id="brand" name="brand_id" required>
+
+        @foreach ($brands as $brand)
+            <option value="{{ $brand->id }}">
+                {{ ucfirst($brand->name) }}
+            </option>
+        @endforeach
+
     </select>
     <!-------------------------------------->
 
-    <label for="strength">Nicotine strength in mg:</label>
+    <label for="nicotine_strength_mg">Nicotine strength in mg:</label>
     <input
         type="number"
+        name="nicotine_strength_mg"
         min="0"
         placeholder="e.g. 10"
         required
     />
 
-    <label for="volume">Volume in ml:</label>
-    <input 
+    <label for="volume_ml">Volume in ml:</label>
+    <input
         type="number"
+        name="volume_ml"
         min="1"
         placeholder="e.g. 25"
         required
