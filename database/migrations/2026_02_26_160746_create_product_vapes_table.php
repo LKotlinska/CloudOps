@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('product_vapes', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 20);
+            $table->boolean('has_podsystem');
+            $table->unsignedInteger('puff_count');
+            $table->foreignId('product_id')->constrained('products', 'id')->cascadeOnDelete();
+            $table->foreignId('color_id')->constrained('colors', 'id')->restrictOnDelete();
             $table->timestamps();
         });
     }
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('product_vapes');
     }
 };
