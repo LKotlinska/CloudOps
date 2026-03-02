@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Color;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,10 @@ class ProductVapeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'has_podsystem' => fake()->boolean(),
+            'puff_count' => fake()->numberBetween(200, 15000),
+            'product_id' => Product::factory(),
+            'color_id' => fn() => Color::factory(),
         ];
     }
 }
