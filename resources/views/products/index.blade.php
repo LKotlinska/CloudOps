@@ -7,7 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/logout">Logout</a>
+    <form action="/logout" method="POST">
+        @csrf
+        <button type="submit">Logout</button>
+    </form>
     
     <h1>Here are all the products</h1>
     @foreach ($products as $product)

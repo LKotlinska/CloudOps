@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <title>Document</title>
 </head>
 <body>
@@ -15,10 +15,10 @@
             @csrf
 
             <label for="email">Email address</label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" value="{{ old('email') }}">
 
             <label for="password">Password</label>
-            <input type="text" id="password" name="password">
+            <input type="password" id="password" name="password" value="{{ old('password') }}">
 
             <button type="submit">Login</button>
 
