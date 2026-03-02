@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="/logout">Logout</a>
+    
     <h1>Here are all the products</h1>
     @foreach ($products as $product)
         <p>{{ $product->name }}</p>
