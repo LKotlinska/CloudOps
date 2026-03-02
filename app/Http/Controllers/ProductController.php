@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\Brand;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -20,7 +22,15 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view(
+            'products.create',
+            [
+                'categories' => $categories,
+                'brands' => $brands
+            ]
+        );
     }
 
     /**
@@ -28,7 +38,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newProduct = $request->validate([
+            'name' => 'required|string|min:3|max:100',
+            'description' => 'required|string|min:3|max:250',
+            'price' => 'required|numeric|gt:1',
+            'stock' => 'required|integer|gte:0',
+            'category_id' => 'required|exists:categories,id',
+            'brand_id' => 'required|exists:brands,id',
+            'nicotine_strength_mg' => 'required|numeric|gte:0',
+            'volume_ml' => 'required|numeric|gte:0',
+        ]);
+
+        $product = Product::create($newProduct);
     }
 
     /**
