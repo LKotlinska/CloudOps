@@ -7,7 +7,7 @@
 
 3. Copy the content from the .env.example file and paste it in your .env file. Then update the .env file with your credentials.
 
-4. Next you need to generate an APP-KEY. KEY:generate puts APP_KEY in .env wich is necessary for Laravel encryption.
+4. Next you need to generate an APP-KEY. KEY:generate puts APP_KEY in .env which is necessary for Laravel encryption.
 ```php artisan key:generate```
 
 5. Create a new MySQL database.
