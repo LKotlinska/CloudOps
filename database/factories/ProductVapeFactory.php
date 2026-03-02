@@ -22,7 +22,7 @@ class ProductVapeFactory extends Factory
             'has_podsystem' => fake()->boolean(),
             'puff_count' => fake()->numberBetween(200, 15000),
             'product_id' => Product::factory(),
-            'color_id' => fn() => Color::factory(),
+            'color_id' => Color::factory(),
         ];
     }
 }

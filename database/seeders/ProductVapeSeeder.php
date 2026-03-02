@@ -19,9 +19,10 @@ class ProductVapeSeeder extends Seeder
 
         ProductVape::factory()
             ->count($productIds->count())
-            ->create([
-                'product_id' => fn() => $productIds->random(),
-                'color_id' => fn() => $colorIds->random(),
-            ]);
+            ->state(fn() => [
+                'product_id' => $productIds->random(),
+                'color_id' => $colorIds->random(),
+            ])
+            ->create();
     }
 }
