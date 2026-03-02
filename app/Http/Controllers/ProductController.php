@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Flavor;
+use App\Models\Brand;
+use App\Models\Color;
+
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,7 +16,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::with(['brand', 'flavors', 'colors'])->get();
+        $brands   = Brand::all();
+        $flavors  = Flavor::all();
+        $colors   = Color::all();
+
+        return view('products.index', compact('products', 'brands', 'flavors', 'colors'));
     }
 
     /**
