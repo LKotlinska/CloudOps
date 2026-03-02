@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Product;
+use App\Models\Color;
+use App\Models\ProductVape;
 use Illuminate\Database\Seeder;
 
 class ProductVapeSeeder extends Seeder
@@ -12,6 +14,15 @@ class ProductVapeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $productIds = Product::pluck('id');
+        $colorIds = Color::pluck('id');
+
+        ProductVape::factory()
+            ->count($productIds->count())
+            ->state(fn() => [
+                'product_id' => $productIds->random(),
+                'color_id' => $colorIds->random(),
+            ])
+            ->create();
     }
 }
