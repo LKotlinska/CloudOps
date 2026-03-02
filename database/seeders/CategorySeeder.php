@@ -13,8 +13,9 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            'Disposables', 'Pod Systems', 'Box Mods', 'Starter Kits',
-            'Tanks', 'Coils', 'E-Liquids', 'Salts', 'Accessories', 'Batteries',
+            'E-Liquid',
+            'Nicotine salt',
+            'Vape',
         ];
 
         foreach ($categories as $name) {
