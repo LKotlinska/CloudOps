@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Flavor;
 use Illuminate\Http\Request;
 
 class FlavorController extends Controller
@@ -11,7 +12,9 @@ class FlavorController extends Controller
      */
     public function index()
     {
-        //
+        $flavors = Flavor::all();
+
+        return view('flavors.index', compact('flavors'));
     }
 
     /**
@@ -19,7 +22,7 @@ class FlavorController extends Controller
      */
     public function create()
     {
-        //
+        return view('flavors.create');
     }
 
     /**
@@ -27,13 +30,20 @@ class FlavorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newFlavor = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        Flavor::create($newFlavor);
+
+        return redirect()->route('flavors.index')
+            ->with('success', 'Flavor created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Flavor $flavor)
     {
         //
     }
@@ -41,24 +51,34 @@ class FlavorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Flavor $flavor)
     {
-        //
+        return view('flavors.edit', compact('flavor',));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Flavor $flavor)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $flavor->update($validated);
+
+        return redirect()->route('flavors.index')
+            ->with('success', 'Flavor updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Flavor $flavor)
     {
-        //
+        $flavor->delete();
+
+        return redirect()->route('flavors.index')
+            ->with('success', 'Flavor deleted successfully.');
     }
 }
