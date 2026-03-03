@@ -58,7 +58,7 @@ class ProductController extends Controller
             'volume_ml' => 'required|numeric|gte:0',
         ]);
 
-        $product = Product::create($newProduct);
+        Product::create($newProduct);
     }
 
     /**
