@@ -33,12 +33,15 @@ class ProductController extends Controller
         $flavors = Flavor::all();
         $categories = Category::all();
         $brands = Brand::all();
+        $colors = Color::all();
+
         return view(
             'products.create',
             [
                 'categories' => $categories,
                 'brands' => $brands,
                 'flavors' => $flavors,
+                'colors' => $colors,
             ]
         );
     }
