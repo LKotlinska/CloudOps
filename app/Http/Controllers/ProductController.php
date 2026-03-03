@@ -9,8 +9,6 @@ use App\Models\Category;
 use App\Models\Flavor;
 use App\Models\Color;
 
-
-
 class ProductController extends Controller
 {
     /**
