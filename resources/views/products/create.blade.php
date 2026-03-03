@@ -31,8 +31,13 @@
     ></textarea>
     
     <label for="category_id">Product type:</label>
-    <select id="category" name="category_id" required>
+    <select 
+        id="category_id" 
+        name="category_id" 
+        required>
+
         <option value="" disabled selected>Select your option</option>
+
         @foreach ($categories as $category)
             <option value="{{ $category->id }}">
                 {{ ucfirst($category->name) }}
@@ -41,6 +46,55 @@
 
     </select>
 
+    <!--  Conditionally rendered fields  -->
+    <div id="vape-fields">
+
+        <label>Refillable:</label>
+
+        <input 
+            type="radio"
+            id="has_podsystem_yes"
+            name="has_podsystem"
+            value="1"
+        />
+        <label for="has_podsystem_yes">Yes</label>
+
+        <input 
+            type="radio"
+            id="has_podsystem_no"
+            name="has_podsystem"
+            value="0"
+        />
+        <label for="has_podsystem_no">No</label>
+
+        <label for="puff_count">Puff count:</label>
+        <input
+            type="number"
+            id="puff_count"
+            min="1"
+            step="1"
+            placeholder="e.g. 1000 "
+            required
+        />
+
+        <label for="color">Color:</label>
+        <select
+            id="color_id"
+            name="color_id"
+            required>
+            
+            <option value="" disabled selected>Select your option</option>
+
+            @foreach ($colors as $color)
+                <option value="{{ $color->id }}">
+                    {{ ucfirst($color->name) }}
+                </option>
+            @endforeach
+
+        </select>
+
+    </div>
+    <!------------------------------------->
     <label for="price">Price:</label>
     <input
         type="number"
@@ -53,17 +107,20 @@
     
     <label for="stock">In stock:</label>
     <input
-    type="number"
-    name="stock"
-    placeholder="e.g. 12"
-    min="0"
+        type="number"
+        name="stock"
+        placeholder="e.g. 12"
+        min="0"
     />
 
-
-
     <label for="brand_id">Brand name:</label>
-    <select id="brand" name="brand_id" required>
+    <select 
+        id="brand_id" 
+        name="brand_id" 
+        required>
+
         <option value="" disabled selected>Select your option</option>
+
         @foreach ($brands as $brand)
             <option value="{{ $brand->id }}">
                 {{ ucfirst($brand->name) }}
@@ -73,8 +130,13 @@
     </select>
 
     <label for="flavor_id">Flavor:</label>
-        <select id="flavor_id" name="flavor_id" required>
-            <option value="" disabled selected>Select your option</option>
+    <select 
+        id="flavor_id" 
+        name="flavor_id" 
+        required>
+
+        <option value="" disabled selected>Select your option</option>
+
         @foreach ($flavors as $flavor)
             <option value="{{ $flavor->id }}">
                 {{ ucfirst($flavor->name) }}
@@ -103,6 +165,31 @@
 
     <button type="submit">Add product</button>
 </form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const select = document.getElementById('category_id');
+
+    select.addEventListener('change', toggleVapeFields);
+    
+    toggleVapeFields();
+});
+
+    function toggleVapeFields() {
+        const select = document.getElementById('category_id');
+        const selected = select.options[select.selectedIndex].text.toLowerCase();
+        const vapeFields = document.getElementById('vape-fields');
+        const isVape = selected === 'vape';
+
+        vapeFields.style.display = isVape ? 'block' : 'none';
+
+        // Fields need to be disabled, so we don't send them when category isn't vape
+        vapeFields.querySelectorAll('input, select').forEach(field => {
+            field.disabled = isVape ? false : true;
+        });
+
+    }
+</script>
 
 </body>
 </html>
