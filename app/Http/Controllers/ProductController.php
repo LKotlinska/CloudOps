@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Brand;
@@ -29,13 +30,15 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $flavors = Flavor::all();
         $categories = Category::all();
         $brands = Brand::all();
         return view(
             'products.create',
             [
                 'categories' => $categories,
-                'brands' => $brands
+                'brands' => $brands,
+                'flavors' => $flavors,
             ]
         );
     }
@@ -52,27 +55,37 @@ class ProductController extends Controller
             'stock' => 'required|integer|gte:0',
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'required|exists:brands,id',
+            'flavor_id' => 'required|exists:flavors,id',
             'nicotine_strength_mg' => 'required|numeric|gte:0',
             'volume_ml' => 'required|numeric|gte:0',
         ]);
 
-        Product::create($newProduct);
+        //Flavor needed validation, so excluded it from product creation
+        $product = Product::create(Arr::except($newProduct, 'flavor_id'));
+
+        $product->flavors()->attach($newProduct['flavor_id']);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
-    {
-        //
-    }
+    public function show(Product $product) {}
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Product $product)
     {
-        //
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view(
+            'products.edit',
+            [
+                'categories' => $categories,
+                'brands' => $brands,
+                'product' => $product,
+            ]
+        );
     }
 
     /**
