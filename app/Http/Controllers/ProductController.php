@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use App\Models\Flavor;
-use App\Models\Brand;
-use App\Models\Color;
-
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Flavor;
+use App\Models\Color;
 
 class ProductController extends Controller
 {
@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with(['brand', 'flavors', 'colors'])->get();
+        $products = Product::with(['brand', 'flavors', 'productVapes.color'])->get();
         $brands   = Brand::all();
         $flavors  = Flavor::all();
         $colors   = Color::all();
@@ -29,7 +29,15 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view(
+            'products.create',
+            [
+                'categories' => $categories,
+                'brands' => $brands
+            ]
+        );
     }
 
     /**
@@ -37,7 +45,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newProduct = $request->validate([
+            'name' => 'required|string|min:3|max:100',
+            'description' => 'required|string|min:3|max:250',
+            'price' => 'required|numeric|gt:1',
+            'stock' => 'required|integer|gte:0',
+            'category_id' => 'required|exists:categories,id',
+            'brand_id' => 'required|exists:brands,id',
+            'nicotine_strength_mg' => 'required|numeric|gte:0',
+            'volume_ml' => 'required|numeric|gte:0',
+        ]);
+
+        Product::create($newProduct);
     }
 
     /**
