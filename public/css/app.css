@@ -1,19 +1,30 @@
 :root {
-    --bg: #0d0d0f;
-    --surface: #141417;
-    --surface2: #1c1c21;
-    --surface3: #24242b;
-    --border: #2e2e38;
-    --accent: #7c6af7;
-    --accent2: #c084fc;
-    --green: #34d399;
-    --red: #f87171;
-    --amber: #fbbf24;
-    --text: #e8e8f0;
-    --text2: #9898b0;
-    --text3: #5a5a70;
-    --font-head: 'Syne', sans-serif;
-    --font-mono: 'DM Mono', monospace;
+    /* Backgrounds */
+    --color-bg-page:        #0d0d0f;
+    --color-bg-card:        #141417;
+    --color-bg-input:       #1c1c21;
+    --color-bg-hover:       #24242b;
+
+    /* Borders */
+    --color-border:         #2e2e38;
+
+    /* Brand colors */
+    --color-accent-primary: #7c6af7;
+    --color-accent-purple:  #c084fc;
+
+    /* Semantic colors */
+    --color-success:        #34d399;
+    --color-danger:         #f87171;
+    --color-warning:        #fbbf24;
+
+    /* Text */
+    --color-text-primary:   #e8e8f0;
+    --color-text-secondary: #9898b0;
+    --color-text-muted:     #5a5a70;
+
+    /* Typography */
+    --font-heading: 'Syne', sans-serif;
+    --font-body:    'DM Mono', monospace;
 }
 
 *, *::before, *::after {
@@ -23,16 +34,15 @@
 }
 
 body {
-    font-family: var(--font-mono);
-    background: var(--bg);
-    color: var(--text);
+    font-family: var(--font-body);
+    background: var(--color-bg-page);
+    color: var(--color-text-primary);
     min-height: 100vh;
     display: flex;
-    font-size: 14px;
+    font-size: 1rem;
     line-height: 1.5;
 }
 
-/* SR-only utility */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -45,12 +55,11 @@ body {
     border: 0;
 }
 
-/* Focus visible */
 *:focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--color-accent-primary);
     outline-offset: 2px;
 }
 
 select option {
-    background: var(--surface2);
+    background: var(--color-bg-input);
 }

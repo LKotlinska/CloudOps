@@ -157,7 +157,7 @@ tbody tr:hover { background: var(--color-bg-input); }
 .stock-out { color: var(--color-danger); }
 
 /* ── PAGINATION ── */
-.pagination {
+/* .pagination {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -185,7 +185,7 @@ tbody tr:hover { background: var(--color-bg-input); }
     transition: all 0.12s;
 }
 .page-btn.active { background: var(--color-accent-primary); border-color: var(--color-accent-primary); color: #fff; }
-.page-btn:hover:not(.active) { background: var(--color-bg-input); color: var(--color-text-primary); }
+.page-btn:hover:not(.active) { background: var(--color-bg-input); color: var(--color-text-primary); } */
 
 /* ── SIMPLE LIST TABLE (brands/flavors/colors) ── */
 .list-table-wrap {
