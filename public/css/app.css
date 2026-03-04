@@ -1,0 +1,56 @@
+:root {
+    --bg: #0d0d0f;
+    --surface: #141417;
+    --surface2: #1c1c21;
+    --surface3: #24242b;
+    --border: #2e2e38;
+    --accent: #7c6af7;
+    --accent2: #c084fc;
+    --green: #34d399;
+    --red: #f87171;
+    --amber: #fbbf24;
+    --text: #e8e8f0;
+    --text2: #9898b0;
+    --text3: #5a5a70;
+    --font-head: 'Syne', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-mono);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* SR-only utility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus visible */
+*:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+select option {
+    background: var(--surface2);
+}
