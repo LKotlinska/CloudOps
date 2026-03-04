@@ -25,12 +25,12 @@
     </article>
     <article class="stat-card" aria-label="Number of e-liquids">
         <div class="stat-label">E-liquid</div>
-        <div class="stat-value" style="color:var(--color-success)">{{ $counts['E-liquid'] ?? 0 }}</div>
+        <div class="stat-value" style="color:var(--color-success)">{{ $counts['E-Liquid'] ?? 0 }}</div>
         <div class="stat-sub">vials</div>
     </article>
     <article class="stat-card" aria-label="Number of nic salts">
         <div class="stat-label">Nic Salt</div>
-        <div class="stat-value" style="color:var(--color-warning)">{{ $counts['Nic Salt'] ?? 0 }}</div>
+        <div class="stat-value" style="color:var(--color-warning)">{{ $counts['Nicotine Salt'] ?? 0 }}</div>
         <div class="stat-sub">salts</div>
     </article>
 </div>
@@ -160,8 +160,8 @@
             @php
             $stockClass = $product->stock === 0 ? 'stock-out' : ($product->stock < 10 ? 'stock-low' : 'stock-ok' );
                 $stockText=$product->stock === 0 ? 'Out of stock' : ($product->stock < 10 ? $product->stock . ' (low)' : $product->stock);
-                    $catIcons = ['Vape' => '🌬️', 'E-liquid' => '💧', 'Nic Salt' => '⚗️'];
-                    $catBadges = ['Vape' => 'badge-vape', 'E-liquid' => 'badge-eliquid', 'Nic Salt' => 'badge-nicsalt'];
+                    $catIcons = ['Vape' => '🌬️', 'E-Liquid' => '💧', 'Nicotine salt' => '⚗️'];
+                    $catBadges = ['Vape' => 'badge-vape', 'E-Liquid' => 'badge-eliquid', 'Nicotine salt' => 'badge-nicsalt'];
                     $catName = $product->category->name ?? '';
                     @endphp
                     <tr>
