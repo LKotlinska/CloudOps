@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/products.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/start-page.css') }}">
     @yield('styles')
 </head>
 
@@ -26,10 +26,20 @@
         </div>
         <nav>
             <div class="nav-section">Catalogue</div>
+            <a href="{{ route('start-page') }}"
+                class="nav-item {{ request()->routeIs('start.*') ? 'active' : '' }}"
+                aria-current="{{ request()->routeIs('start.*') ? 'page' : 'false' }}">
+                <span class="nav-icon" aria-hidden="true">▦</span> Overview
+            </a>
             <a href="{{ route('products.index') }}"
                 class="nav-item {{ request()->routeIs('products.*') ? 'active' : '' }}"
                 aria-current="{{ request()->routeIs('products.*') ? 'page' : 'false' }}">
-                <span class="nav-icon" aria-hidden="true">▦</span> Products
+                <span class="nav-icon" aria-hidden="true">▣</span> Products
+            </a>
+            <a href="{{ route('categories.index') }}"
+                class="nav-item {{ request()->routeIs('categories.*') ? 'active' : '' }}"
+                aria-current="{{ request()->routeIs('categories.*') ? 'page' : 'false' }}">
+                <span class="nav-icon" aria-hidden="true">◈</span> Categories
             </a>
             <a href="{{ route('brands.index') }}"
                 class="nav-item {{ request()->routeIs('brands.*') ? 'active' : '' }}"
@@ -44,12 +54,15 @@
             <a href="{{ route('colors.index') }}"
                 class="nav-item {{ request()->routeIs('colors.*') ? 'active' : '' }}"
                 aria-current="{{ request()->routeIs('colors.*') ? 'page' : 'false' }}">
-                <span class="nav-icon" aria-hidden="true">◈</span> Colors
+                <span class="nav-icon" aria-hidden="true">◍</span> Colors
             </a>
-            <div class="nav-section">System</div>
-            <a href="#" class="nav-item">
-                <span class="nav-icon" aria-hidden="true">⚙</span> Settings
-            </a>
+            <div class="nav-section">Account</div>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="nav-item" style="width:100%;background:none;border:none;cursor:pointer;text-align:left;font-family:var(--font-body);font-size:1rem;">
+                    <span class="nav-icon" aria-hidden="true">→</span> Logout
+                </button>
+            </form>
         </nav>
     </aside>
 
