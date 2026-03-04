@@ -22,6 +22,7 @@
             id="name" 
             name="name"
             placeholder="e.g. E-liquid"
+            value="{{ old('name') }}"
             required
         />
 
