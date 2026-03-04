@@ -36,7 +36,7 @@ class CategoryController extends Controller
 
         Category::create($newCategory);
 
-        return redirect()->route('categories.index')->with('success', 'Product created successfully.');
+        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
     }
 
     /**
