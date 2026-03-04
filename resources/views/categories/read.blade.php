@@ -14,9 +14,9 @@
     
     <h1>Category view</h1>
 
-    <a href="./categories/create">New category</a>
+    <a href="{{ route('categories.create') }}">New category</a>
 
-        <h2>{{ $category->name }}</2>
+        <h2>{{ $category->name }}</h2>
 
         <a href="{{ route('categories.edit', $category) }}">Edit</a>
 
