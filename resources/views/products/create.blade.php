@@ -58,16 +58,16 @@
             id="has_podsystem_yes"
             name="has_podsystem"
             value="1"
-            {{ old('has_podsystem') == '0' ? 'checked' : '' }}
+            {{ old('has_podsystem') == '1' ? 'checked' : '' }}
         />
         <label for="has_podsystem_yes">Yes</label>
 
-        <input 
+        <input
             type="radio"
             id="has_podsystem_no"
             name="has_podsystem"
             value="0"
-            {{ old('has_podsystem') == '1' ? 'checked' : '' }}
+            {{ old('has_podsystem') == '0' ? 'checked' : '' }}
         />
         <label for="has_podsystem_no">No</label>
 
