@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with(['brand', 'flavors', 'productVapes.color'])->get();
+        $products = Product::with(['brand', 'flavors', 'productVape.color'])->get();
         $brands   = Brand::all();
         $flavors  = Flavor::all();
         $colors   = Color::all();
@@ -52,21 +52,39 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $newProduct = $request->validate([
+            // Always required fields
             'name' => 'required|string|min:3|max:100',
             'description' => 'required|string|min:3|max:250',
             'price' => 'required|numeric|gt:1',
             'stock' => 'required|integer|gte:0',
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'required|exists:brands,id',
-            'flavor_id' => 'required|exists:flavors,id',
             'nicotine_strength_mg' => 'required|numeric|gte:0',
             'volume_ml' => 'required|numeric|gte:0',
+
+            'flavor_id' => 'required|exists:flavors,id',
+
+            // Conditional fields - vape specific
+            'has_podsystem' => 'sometimes|boolean',
+            'puff_count' => 'sometimes|numeric|min:1',
+            'color_id' => 'sometimes|exists:colors,id'
         ]);
 
-        //Flavor needed validation, so excluded it from product creation
-        $product = Product::create(Arr::except($newProduct, 'flavor_id'));
+        $product = Product::create(Arr::except($newProduct, ['flavor_id', 'has_podsystem', 'puff_count', 'color_id']));
 
         $product->flavors()->attach($newProduct['flavor_id']);
+
+        $vapeCategory = Category::where('name', 'Vape')->first();
+
+        if ($newProduct['category_id'] == $vapeCategory->id) {
+            $product->productVape()->create([
+                'has_podsystem' => $request->boolean('has_podsystem'),
+                'puff_count'    => Arr::get($newProduct, 'puff_count'),
+                'color_id'      => Arr::get($newProduct, 'color_id'),
+            ]);
+        }
+
+        return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
 
     /**

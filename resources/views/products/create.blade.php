@@ -71,6 +71,7 @@
         <input
             type="number"
             id="puff_count"
+            name="puff_count"
             min="1"
             step="1"
             placeholder="e.g. 1000 "
