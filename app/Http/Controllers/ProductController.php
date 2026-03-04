@@ -59,14 +59,14 @@ class ProductController extends Controller
             'stock' => 'required|integer|gte:0',
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'required|exists:brands,id',
-            'nicotine_strength_mg' => 'required|numeric|gte:0',
-            'volume_ml' => 'required|numeric|gte:0',
+            'nicotine_strength_mg' => 'required|integer|gte:0',
+            'volume_ml' => 'required|integer|gte:0',
 
             'flavor_id' => 'required|exists:flavors,id',
 
             // Conditional fields - vape specific
             'has_podsystem' => 'sometimes|boolean',
-            'puff_count' => 'sometimes|numeric|min:1',
+            'puff_count' => 'sometimes|integer|min:1',
             'color_id' => 'sometimes|exists:colors,id'
         ]);
 
@@ -130,18 +130,33 @@ class ProductController extends Controller
             'stock' => 'required|integer|gte:0',
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'required|exists:brands,id',
-            'nicotine_strength_mg' => 'required|numeric|gte:0',
-            'volume_ml' => 'required|numeric|gte:0',
+            'nicotine_strength_mg' => 'required|integer|gte:0',
+            'volume_ml' => 'required|integer|gte:0',
 
             'flavor_id' => 'required|exists:flavors,id',
 
             // Conditional fields - vape specific
             'has_podsystem' => 'sometimes|boolean',
-            'puff_count' => 'sometimes|numeric|min:1',
+            'puff_count' => 'sometimes|integer|min:1',
             'color_id' => 'sometimes|exists:colors,id'
         ]);
 
-        $product->update($updatedProduct);
+        $product->update(Arr::except($updatedProduct, ['flavor_id', 'has_podsystem', 'puff_count', 'color_id']));
+
+        $product->flavors()->sync([$updatedProduct['flavor_id']]);
+
+        $vapeCategory = Category::where('name', 'Vape')->first();
+
+        if ($updatedProduct['category_id'] == $vapeCategory->id) {
+            $product->productVape()->updateOrCreate(
+                ['product_id' => $product->id],
+                [
+                    'has_podsystem' => $request->boolean('has_podsystem'),
+                    'puff_count'    => Arr::get($updatedProduct, 'puff_count'),
+                    'color_id'      => Arr::get($updatedProduct, 'color_id'),
+                ]
+            );
+        }
 
         return redirect()->route('products.index')->with('success', 'Product updated.');
     }
