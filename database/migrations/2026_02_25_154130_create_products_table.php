@@ -17,8 +17,8 @@ return new class extends Migration
             $table->text('description');
             $table->decimal('price', 8, 2);
             $table->integer('stock')->default(0);
-            $table->unsignedInteger('nicotine_strength_mg')->nullable(true);
-            $table->unsignedInteger('volume_ml')->nullable(true);
+            $table->unsignedInteger('nicotine_strength_mg')->nullable(false);
+            $table->unsignedInteger('volume_ml')->nullable(false);
             $table->foreignId('category_id')->constrained('categories', 'id');
             $table->foreignId('brand_id')->constrained('brands', 'id');
             $table->timestamps();
