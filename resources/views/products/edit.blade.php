@@ -150,7 +150,7 @@
 
         @foreach ($flavors as $flavor)
             <option value="{{ $flavor->id }}"
-                {{ !old('flavor_id') && $product->flavors->contains($flavor->id) || old('flavor_id') == $flavor->id ? 'selected' : '' }}>
+                {{ (!old('flavor_id') && $product->flavors->contains($flavor->id)) || old('flavor_id') == $flavor->id ? 'selected' : '' }}>
                 {{ ucfirst($flavor->name) }}
             </option>
         @endforeach
