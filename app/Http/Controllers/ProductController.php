@@ -90,21 +90,29 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product) {}
+    public function show(Product $product)
+    {
+        return view('products.read', ['product' => $product]);
+    }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Product $product)
     {
+        $flavors = Flavor::all();
         $categories = Category::all();
         $brands = Brand::all();
+        $colors = Color::all();
+
         return view(
             'products.edit',
             [
                 'categories' => $categories,
                 'brands' => $brands,
-                'product' => $product,
+                'flavors' => $flavors,
+                'colors' => $colors,
+                'product' => $product
             ]
         );
     }
@@ -114,7 +122,28 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $updatedProduct = $request->validate([
+            // Always required fields
+            'name' => 'required|string|min:3|max:100',
+            'description' => 'required|string|min:3|max:250',
+            'price' => 'required|numeric|gt:1',
+            'stock' => 'required|integer|gte:0',
+            'category_id' => 'required|exists:categories,id',
+            'brand_id' => 'required|exists:brands,id',
+            'nicotine_strength_mg' => 'required|numeric|gte:0',
+            'volume_ml' => 'required|numeric|gte:0',
+
+            'flavor_id' => 'required|exists:flavors,id',
+
+            // Conditional fields - vape specific
+            'has_podsystem' => 'sometimes|boolean',
+            'puff_count' => 'sometimes|numeric|min:1',
+            'color_id' => 'sometimes|exists:colors,id'
+        ]);
+
+        $product->update($updatedProduct);
+
+        return redirect()->route('products.index')->with('success', 'Product updated.');
     }
 
     /**
@@ -122,6 +151,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        Product::destroy($product->id);
+        return redirect()->route('products.index')->with('success', 'Product deleted.');
     }
 }
