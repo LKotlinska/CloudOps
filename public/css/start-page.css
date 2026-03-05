@@ -156,37 +156,6 @@ tbody tr:hover { background: var(--color-bg-input); }
 .stock-low { color: var(--color-warning); }
 .stock-out { color: var(--color-danger); }
 
-/* ── PAGINATION ── */
-/* .pagination {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.875rem 1.25rem;
-    border-top: 1px solid var(--color-border);
-    background: var(--color-bg-card);
-}
-
-.pagination-info { font-size: 1rem; color: var(--color-text-muted); }
-.pagination-btns { display: flex; gap: 0.25rem; }
-
-.page-btn {
-    width: 1.875rem;
-    height: 1.875rem;
-    border-radius: 6px;
-    border: 1px solid var(--color-border);
-    background: transparent;
-    color: var(--color-text-secondary);
-    cursor: pointer;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.12s;
-}
-.page-btn.active { background: var(--color-accent-primary); border-color: var(--color-accent-primary); color: #fff; }
-.page-btn:hover:not(.active) { background: var(--color-bg-input); color: var(--color-text-primary); } */
-
 /* ── SIMPLE LIST TABLE (brands/flavors/colors) ── */
 .list-table-wrap {
     background: var(--color-bg-card);
@@ -195,3 +164,8 @@ tbody tr:hover { background: var(--color-bg-input); }
     overflow: hidden;
     margin-top: 1.25rem;
 }
+
+/* ── STAT VALUE COLORS ── */
+.stat-value-vape    { color: var(--color-accent-purple); }
+.stat-value-eliquid { color: var(--color-success); }
+.stat-value-nicsalt { color: var(--color-warning); }
