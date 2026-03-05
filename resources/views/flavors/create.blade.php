@@ -16,7 +16,7 @@
             <span class="sr-only">asterisk</span> are mandatory.
         </p>
 
-        <form action="{{ route('flavors.store') }}" method="POST" novalidate>
+        <form action="{{ route('flavors.store') }}" method="POST">
             @csrf
 
             <div class="form-grid">
