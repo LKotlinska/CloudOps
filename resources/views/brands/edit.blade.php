@@ -11,10 +11,7 @@
 
 <div class="form-page">
     <div class="form-page-card">
-        <p class="form-instructions">
-            Fields marked with <span aria-hidden="true" style="color:var(--red)">*</span>
-            <span class="sr-only">asterisk</span> are mandatory.
-        </p>
+        <p class="form-instructions">Fields marked with an asterisk (*) are mandatory.</p>
 
         <form action="{{ route('brands.update', $brand) }}" method="POST">
             @csrf
@@ -23,7 +20,7 @@
             <div class="form-grid">
                 <div class="form-field full">
                     <label for="name">
-                        Brand name <span aria-hidden="true" style="color:var(--red)">*</span>
+                        Brand name <span aria-hidden="true" class="required-mark">*</span>
                     </label>
                     <input id="name"
                         type="text"
@@ -47,7 +44,7 @@
                     <button type="submit" class="btn btn-danger">✕ Delete brand</button>
                 </form>
 
-                <div style="display:flex;gap:10px">
+                <div class="d-flex gap-md">
                     <a href="{{ route('brands.index') }}" class="btn btn-ghost">Cancel</a>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>

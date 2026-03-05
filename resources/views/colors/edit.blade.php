@@ -11,10 +11,7 @@
 
 <div class="form-page">
     <div class="form-page-card">
-        <p class="form-instructions">
-            Fields marked with <span aria-hidden="true" class="required-mark">*</span>
-            <span class="sr-only">asterisk</span> are mandatory.
-        </p>
+        <p class="form-instructions">Fields marked with an asterisk (*) are mandatory.</p>
 
         <form action="{{ route('colors.update', $color) }}" method="POST">
             @csrf
