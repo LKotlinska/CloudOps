@@ -40,14 +40,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Category $category)
-    {
-        return view('categories.read', ['category' => $category]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(Category $category)
