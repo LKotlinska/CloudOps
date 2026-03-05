@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
+    <title>Edit Product</title>
     <link rel="stylesheet" href="{{ asset('css/product.css') }}">
 </head>
 <body>
 
 @include('errors')
 
-<form id="add-form" action="{{ route('products.store') }}" method="POST">
+<form id="add-form" action="{{ route('products.update', $product) }}" method="POST">
     @csrf
-    
+    @method('PUT')
+
     <label for="name">Product name *</label>
     <input 
         type="text" 
         id="name" 
         name="name"
         placeholder="e.g. Vape startkit"
-        value="{{ old('name') }}"
+        value="{{ old('name', $product->name) }}"
         required
     />
 
@@ -29,7 +30,7 @@
         name="description"
         placeholder="e.g. Vape startkit"
         required
-    >{{ old('description') }}</textarea>
+    >{{ old('description', $product->description) }}</textarea>
     
     <label for="category_id">Product type *</label>
     <select 
@@ -41,7 +42,7 @@
 
         @foreach ($categories as $category)
             <option value="{{ $category->id }}"
-                {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                {{ $product->category_id == $category->id ? 'selected' : '' }}>
                 {{ ucfirst($category->name) }}
             </option>
         @endforeach
@@ -53,12 +54,12 @@
 
         <label>Refillable *</label>
 
-        <input 
+        <input
             type="radio"
             id="has_podsystem_yes"
             name="has_podsystem"
             value="1"
-            {{ old('has_podsystem') == '1' ? 'checked' : '' }}
+            {{ old('has_podsystem', $product->productVape->has_podsystem ?? '') == '1' ? 'checked' : '' }}
         />
         <label for="has_podsystem_yes">Yes</label>
 
@@ -67,7 +68,7 @@
             id="has_podsystem_no"
             name="has_podsystem"
             value="0"
-            {{ old('has_podsystem') == '0' ? 'checked' : '' }}
+            {{ old('has_podsystem', $product->productVape->has_podsystem ?? '') == '0' ? 'checked' : '' }}
         />
         <label for="has_podsystem_no">No</label>
 
@@ -79,7 +80,7 @@
             min="1"
             step="1"
             placeholder="e.g. 1000 "
-            value="{{ old('puff_count') }}"
+            value="{{ old('puff_count', $product->productVape->puff_count ?? '') }}"
             required
         />
 
@@ -93,7 +94,7 @@
 
             @foreach ($colors as $color)
                 <option value="{{ $color->id }}"
-                    {{ old('color_id') == $color->id ? 'selected' : '' }}>
+                    {{ old('color_id', $product->productVape->color_id ?? '') == $color->id ? 'selected' : '' }}>
                     {{ ucfirst($color->name) }}
                 </option>
             @endforeach
@@ -109,7 +110,7 @@
         min="1"
         step="any"
         placeholder="e.g. 10.90 "
-        value="{{ old('price') }}"
+        value="{{ old('price', $product->price) }}"
         required
     />
     
@@ -118,7 +119,7 @@
         type="number"
         name="stock"
         placeholder="e.g. 12"
-        value="{{ old('stock') }}"
+        value="{{ old('stock', $product->stock) }}"
         min="0"
     />
 
@@ -132,49 +133,51 @@
 
         @foreach ($brands as $brand)
             <option value="{{ $brand->id }}"
-                {{ old('brand_id') == $brand->id ? 'selected' : '' }}>
+                {{ old('brand_id', $product->brand_id) == $brand->id ? 'selected' : '' }}>
                 {{ ucfirst($brand->name) }}
             </option>
         @endforeach
 
     </select>
 
-    <label for="flavor_id">Flavor</label>
+    <label for="flavor_id">Flavor *</label>
     <select 
         id="flavor_id" 
         name="flavor_id" 
-        >
+        required>
 
-        <option value="" selected>Select your option</option>
+        <option value="" disabled selected>Select your option</option>
 
         @foreach ($flavors as $flavor)
             <option value="{{ $flavor->id }}"
-                {{ old('flavor_id') == $flavor->id ? 'selected' : '' }}>
+                {{ (!old('flavor_id') && $product->flavors->contains($flavor->id)) || old('flavor_id') == $flavor->id ? 'selected' : '' }}>
                 {{ ucfirst($flavor->name) }}
             </option>
         @endforeach
 
     </select>
 
-    <label for="nicotine_strength_mg">Nicotine strength in mg</label>
+    <label for="nicotine_strength_mg">Nicotine strength in mg *</label>
     <input
         type="number"
         name="nicotine_strength_mg"
         min="0"
         placeholder="e.g. 10"
-        value="{{ old('nicotine_strength_mg') }}"
+        value="{{ old('nicotine_strength_mg', $product->nicotine_strength_mg) }}"
+        required
     />
 
-    <label for="volume_ml">Volume in ml</label>
+    <label for="volume_ml">Volume in ml *</label>
     <input
         type="number"
         name="volume_ml"
         min="1"
         placeholder="e.g. 25"
-        value="{{ old('volume_ml') }}"
+        value="{{ old('volume_ml', $product->volume_ml) }}"
+        required
     />
 
-    <button type="submit">Add product</button>
+    <button type="submit">Save changes</button>
 </form>
 
 <script>

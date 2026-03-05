@@ -26,8 +26,8 @@ class ProductFactory extends Factory
             'description' => fake()->paragraph(),
             'price' => fake()->randomFloat(2, 5.00, 250.00),
             'stock' => fake()->numberBetween(0, 500),
-            'nicotine_strength_mg' => fake()->optional()->randomElement([0, 3, 6, 12, 18, 20, 50]),
-            'volume_ml' => fake()->optional()->randomElement([30, 60, 100, 120]),
+            'nicotine_strength_mg' => fake()->randomElement([0, 3, 6, 12, 18, 20, 50]),
+            'volume_ml' => fake()->randomElement([30, 60, 100, 120]),
             'brand_id' => Brand::factory(),
         ];
     }
