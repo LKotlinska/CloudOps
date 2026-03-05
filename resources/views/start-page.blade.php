@@ -30,7 +30,7 @@
     </article>
     <article class="stat-card" aria-label="Number of nic salts">
         <div class="stat-label">Nic Salt</div>
-        <div class="stat-value" style="color:var(--color-warning)">{{ $counts['Nicotine Salt'] ?? 0 }}</div>
+        <div class="stat-value" style="color:var(--color-warning)">{{ $counts['Nicotine salt'] ?? 0 }}</div>
         <div class="stat-sub">salts</div>
     </article>
 </div>
