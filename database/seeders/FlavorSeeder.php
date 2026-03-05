@@ -13,6 +13,19 @@ class FlavorSeeder extends Seeder
      */
     public function run(): void
     {
-        Flavor::factory()->count(6)->create();
+        $flavors = [
+            'Vanilla',
+            'Chocolate',
+            'Strawberry',
+            'Mango',
+            'Caramel',
+            'Mint',
+            'Watermelon',
+            'Liquorice',
+        ];
+
+        foreach ($flavors as $name) {
+            Flavor::create(['name' => $name]);
+        }
     }
 }
