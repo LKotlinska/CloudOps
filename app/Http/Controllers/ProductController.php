@@ -59,10 +59,10 @@ class ProductController extends Controller
             'stock' => 'required|integer|gte:0',
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'required|exists:brands,id',
-            'nicotine_strength_mg' => 'required|integer|gte:0',
-            'volume_ml' => 'required|integer|gte:0',
+            'nicotine_strength_mg' => 'nullable|integer|gte:0',
+            'volume_ml' => 'nullable|integer|gte:0',
 
-            'flavor_id' => 'required|exists:flavors,id',
+            'flavor_id' => 'nullable|exists:flavors,id',
 
             // Conditional fields - vape specific
             'has_podsystem' => 'sometimes|boolean',
@@ -72,7 +72,9 @@ class ProductController extends Controller
 
         $product = Product::create(Arr::except($newProduct, ['flavor_id', 'has_podsystem', 'puff_count', 'color_id']));
 
-        $product->flavors()->attach($newProduct['flavor_id']);
+        if (!empty($newProduct['flavor_id'])) {
+            $product->flavors()->attach($newProduct['flavor_id']);
+        }
 
         $vapeCategory = Category::where('name', 'Vape')->first();
 
@@ -130,10 +132,10 @@ class ProductController extends Controller
             'stock' => 'required|integer|gte:0',
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'required|exists:brands,id',
-            'nicotine_strength_mg' => 'required|integer|gte:0',
-            'volume_ml' => 'required|integer|gte:0',
+            'nicotine_strength_mg' => 'nullable|integer|gte:0',
+            'volume_ml' => 'nullable|integer|gte:0',
 
-            'flavor_id' => 'required|exists:flavors,id',
+            'flavor_id' => 'nullable|exists:flavors,id',
 
             // Conditional fields - vape specific
             'has_podsystem' => 'sometimes|boolean',
@@ -143,7 +145,7 @@ class ProductController extends Controller
 
         $product->update(Arr::except($updatedProduct, ['flavor_id', 'has_podsystem', 'puff_count', 'color_id']));
 
-        $product->flavors()->sync([$updatedProduct['flavor_id']]);
+        $product->flavors()->sync(!empty($updatedProduct['flavor_id']) ? [$updatedProduct['flavor_id']] : []);
 
         $vapeCategory = Category::where('name', 'Vape')->first();
 
