@@ -16,7 +16,7 @@
         <thead>
             <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Products</th>
+                <th scope="col">Amount</th>
                 <th scope="col"><span class="sr-only">Actions</span></th>
             </tr>
         </thead>
