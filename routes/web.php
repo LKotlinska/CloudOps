@@ -7,6 +7,7 @@ use App\Http\Controllers\FlavorController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,7 +21,7 @@ Route::post('/login', LoginController::class);
 Route::post('/logout', LogoutController::class)->middleware('auth')->name('logout');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/start', [ProductController::class, 'startPage'])->name('start-page');
+    Route::get('/start', [HomeController::class, 'startPage'])->name('start-page');
 
     Route::resource('products', ProductController::class);
     Route::resource('brands', BrandController::class);
