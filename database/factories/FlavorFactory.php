@@ -23,7 +23,9 @@ class FlavorFactory extends Factory
                 'Strawberry',
                 'Mango',
                 'Caramel',
-                'Mint'
+                'Mint',
+                'Watermelon',
+                'Liquorice',
             ])
         ];
     }
