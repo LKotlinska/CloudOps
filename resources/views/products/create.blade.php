@@ -139,13 +139,13 @@
 
     </select>
 
-    <label for="flavor_id">Flavor *</label>
+    <label for="flavor_id">Flavor</label>
     <select 
         id="flavor_id" 
         name="flavor_id" 
-        required>
+        >
 
-        <option value="" disabled selected>Select your option</option>
+        <option value="" selected>Select your option</option>
 
         @foreach ($flavors as $flavor)
             <option value="{{ $flavor->id }}"
@@ -156,24 +156,22 @@
 
     </select>
 
-    <label for="nicotine_strength_mg">Nicotine strength in mg *</label>
+    <label for="nicotine_strength_mg">Nicotine strength in mg</label>
     <input
         type="number"
         name="nicotine_strength_mg"
         min="0"
         placeholder="e.g. 10"
         value="{{ old('nicotine_strength_mg') }}"
-        required
     />
 
-    <label for="volume_ml">Volume in ml *</label>
+    <label for="volume_ml">Volume in ml</label>
     <input
         type="number"
         name="volume_ml"
         min="1"
         placeholder="e.g. 25"
         value="{{ old('volume_ml') }}"
-        required
     />
 
     <button type="submit">Add product</button>
