@@ -11,6 +11,7 @@
     /* Brand colors */
     --color-accent-primary: #7c6af7;
     --color-accent-purple:  #c084fc;
+    --color-accent-blue: rgb(0, 200, 255);
 
     /* Semantic colors */
     --color-success:        #34d399;
@@ -20,7 +21,7 @@
     /* Text */
     --color-text-primary:   #e8e8f0;
     --color-text-secondary: #9898b0;
-    --color-text-muted:     #5a5a70;
+    --color-text-muted:     #7c7cb9;
 
     /* Typography */
     --font-heading: 'Syne', sans-serif;

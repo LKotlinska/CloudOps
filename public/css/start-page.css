@@ -166,6 +166,7 @@ tbody tr:hover { background: var(--color-bg-input); }
 }
 
 /* ── STAT VALUE COLORS ── */
-.stat-value-vape    { color: var(--color-accent-purple); }
+.stat-value-vape    { color: var(--color-accent-blue); }
 .stat-value-eliquid { color: var(--color-success); }
 .stat-value-nicsalt { color: var(--color-warning); }
+.stat-value-total   { color: var(--color-accent-purple); }
