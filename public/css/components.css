@@ -182,3 +182,31 @@ label {
 }
 .empty-state-icon { font-size: 2rem; margin-bottom: 0.75rem; }
 .empty-state-text { font-size: 1rem; }
+
+/* ── UTILITY CLASSES ── */
+.text-secondary { color: var(--color-text-secondary); }
+.text-muted     { color: var(--color-text-muted); }
+.text-bold      { font-weight: 500; }
+.required-mark  { color: var(--color-danger); }
+.filter-btn     { align-self: flex-end; }
+.d-flex         { display: flex; }
+.gap-md         { gap: 0.625rem; }
+
+/* ── NAV LOGOUT BUTTON ── */
+.nav-logout {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+/* ── TABLE UTILITIES ── */
+.td-actions  { display: flex; gap: 0.375rem; }
+.status-cell { display: flex; align-items: center; gap: 0.375rem; }
+
+/* ── FILTER WIDTHS ── */
+.filter-input-lg { width: 13.75rem; }
+.filter-input-sm { width: 5rem; }
