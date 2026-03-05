@@ -23,14 +23,13 @@
         <tbody>
             @forelse($colors as $color)
             <tr>
-                <td style="font-weight:500">{{ $color->name }}</td>
-                <td style="color:var(--text2)">{{ $color->product_vapes_count }}</td>
+                <td class="text-bold">{{ $color->name }}</td>
+                <td class="text-secondary">{{ $color->product_vapes_count }}</td>
                 <td>
-                    <div style="display:flex;gap:6px">
+                    <div class="td-actions">
                         <a href="{{ route('colors.edit', $color) }}"
                             class="btn btn-ghost btn-sm"
                             aria-label="Edit {{ $color->name }}">✎ Edit</a>
-
                         <form action="{{ route('colors.destroy', $color) }}" method="POST"
                             onsubmit="return confirm('Delete {{ addslashes($color->name) }}?')">
                             @csrf

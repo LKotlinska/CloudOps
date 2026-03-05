@@ -23,14 +23,13 @@
         <tbody>
             @forelse($brands as $brand)
             <tr>
-                <td style="font-weight:500">{{ $brand->name }}</td>
-                <td style="color:var(--text2)">{{ $brand->products_count }}</td>
+                <td class="text-bold">{{ $brand->name }}</td>
+                <td class="text-secondary">{{ $brand->products_count }}</td>
                 <td>
-                    <div style="display:flex;gap:6px">
+                    <div class="td-actions">
                         <a href="{{ route('brands.edit', $brand) }}"
                             class="btn btn-ghost btn-sm"
                             aria-label="Edit {{ $brand->name }}">✎ Edit</a>
-
                         <form action="{{ route('brands.destroy', $brand) }}" method="POST"
                             onsubmit="return confirm('Delete {{ addslashes($brand->name) }}?')">
                             @csrf

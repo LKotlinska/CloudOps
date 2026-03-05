@@ -12,7 +12,7 @@
 <div class="form-page">
     <div class="form-page-card">
         <p class="form-instructions">
-            Fields marked with <span aria-hidden="true" style="color:var(--red)">*</span>
+            Fields marked with <span aria-hidden="true" class="required-mark">*</span>
             <span class="sr-only">asterisk</span> are mandatory.
         </p>
 
@@ -23,7 +23,7 @@
             <div class="form-grid">
                 <div class="form-field full">
                     <label for="name">
-                        Flavor name <span aria-hidden="true" style="color:var(--red)">*</span>
+                        Flavor name <span aria-hidden="true" class="required-mark">*</span>
                     </label>
                     <input id="name"
                         type="text"
@@ -47,7 +47,7 @@
                     <button type="submit" class="btn btn-danger">✕ Delete flavor</button>
                 </form>
 
-                <div style="display:flex;gap:10px">
+                <div class="d-flex gap-md">
                     <a href="{{ route('flavors.index') }}" class="btn btn-ghost">Cancel</a>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>

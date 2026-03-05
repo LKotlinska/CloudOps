@@ -20,17 +20,17 @@
     </article>
     <article class="stat-card" aria-label="Number of vape units">
         <div class="stat-label">Vape</div>
-        <div class="stat-value" style="color:var(--color-accent-purple)">{{ $counts['Vape'] ?? 0 }}</div>
+        <div class="stat-value stat-value-vape">{{ $counts['Vape'] ?? 0 }}</div>
         <div class="stat-sub">units</div>
     </article>
     <article class="stat-card" aria-label="Number of e-liquids">
         <div class="stat-label">E-liquid</div>
-        <div class="stat-value" style="color:var(--color-success)">{{ $counts['E-Liquid'] ?? 0 }}</div>
+        <div class="stat-value stat-value-eliquid">{{ $counts['E-Liquid'] ?? 0 }}</div>
         <div class="stat-sub">vials</div>
     </article>
     <article class="stat-card" aria-label="Number of nic salts">
         <div class="stat-label">Nic Salt</div>
-        <div class="stat-value" style="color:var(--color-warning)">{{ $counts['Nicotine salt'] ?? 0 }}</div>
+        <div class="stat-value stat-value-nicsalt">{{ $counts['Nicotine salt'] ?? 0 }}</div>
         <div class="stat-sub">salts</div>
     </article>
 </div>
@@ -63,10 +63,9 @@
             <input id="search"
                 type="search"
                 name="search"
-                class="filter-input"
+                class="filter-input filter-input-lg"
                 placeholder="Name, brand..."
-                value="{{ request('search') }}"
-                style="width:13.75rem">
+                value="{{ request('search') }}">
         </div>
 
         <div class="filter-group">
@@ -86,19 +85,17 @@
             <div class="price-range">
                 <input type="number"
                     name="price_min"
-                    class="filter-input"
+                    class="filter-input filter-input-sm"
                     placeholder="Min"
                     aria-label="Min price"
-                    value="{{ request('price_min') }}"
-                    style="width:5rem">
+                    value="{{ request('price_min') }}">
                 <span aria-hidden="true">–</span>
                 <input type="number"
                     name="price_max"
-                    class="filter-input"
+                    class="filter-input filter-input-sm"
                     placeholder="Max"
                     aria-label="Max price"
-                    value="{{ request('price_max') }}"
-                    style="width:5rem">
+                    value="{{ request('price_max') }}">
             </div>
         </div>
 
@@ -106,9 +103,9 @@
             <label for="stock-filter" class="filter-label">Stock</label>
             <select id="stock-filter" name="stock" class="filter-select">
                 <option value="">All</option>
-                <option value="in_stock" {{ request('stock') === 'in_stock'  ? 'selected' : '' }}>In stock</option>
+                <option value="in_stock" {{ request('stock') === 'in_stock' ? 'selected' : '' }}>In stock</option>
                 <option value="low_stock" {{ request('stock') === 'low_stock' ? 'selected' : '' }}>Low on stock</option>
-                <option value="out" {{ request('stock') === 'out'       ? 'selected' : '' }}>Out of stock</option>
+                <option value="out" {{ request('stock') === 'out' ? 'selected' : '' }}>Out of stock</option>
             </select>
         </div>
 
@@ -136,8 +133,8 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-ghost" style="align-self:flex-end">Filter</button>
-        <a href="{{ route('start-page') }}" class="btn btn-ghost" style="align-self:flex-end">✕ Clear</a>
+        <button type="submit" class="btn btn-ghost filter-btn">Filter</button>
+        <a href="{{ route('start-page') }}" class="btn btn-ghost filter-btn">✕ Clear</a>
     </form>
 </section>
 
@@ -172,7 +169,6 @@
                                 </div>
                                 <div>
                                     <div class="product-name">{{ $product->name }}</div>
-                                    <div class="product-sku">{{ $product->brand->name ?? '—' }}</div>
                                 </div>
                             </div>
                         </td>
@@ -181,18 +177,16 @@
                                 {{ $catName }}
                             </span>
                         </td>
-                        <td style="color:var(--color-text-secondary)">{{ $product->brand->name ?? '—' }}</td>
+                        <td class="text-secondary">{{ $product->brand->name ?? '—' }}</td>
                         <td>{{ number_format($product->price, 2) }} kr</td>
                         <td class="{{ $stockClass }}" aria-label="Stock: {{ $stockText }}">
                             {{ $stockText }}
                         </td>
                         <td>
-                            <span style="display:flex;align-items:center;gap:0.375rem;">
+                            <div class="status-cell">
                                 <span class="status-dot {{ $product->stock > 0 ? 'active' : 'inactive' }}" aria-hidden="true"></span>
-                                <span style="color:var(--color-text-secondary)">
-                                    {{ $product->stock > 0 ? 'Active' : 'Inactive' }}
-                                </span>
-                            </span>
+                                <span class="text-secondary">{{ $product->stock > 0 ? 'Active' : 'Inactive' }}</span>
+                            </div>
                         </td>
                         <td>
                             <a href="{{ route('products.edit', $product) }}"
@@ -213,7 +207,6 @@
         </tbody>
     </table>
 
-    {{-- PAGINATION --}}
     <nav class="pagination" aria-label="Page navigation">
         <div class="pagination-info" aria-live="polite">
             {{ $products->count() }} products

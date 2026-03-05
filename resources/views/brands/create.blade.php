@@ -11,10 +11,7 @@
 
 <div class="form-page">
     <div class="form-page-card">
-        <p class="form-instructions">
-            Fields marked with <span aria-hidden="true" style="color:var(--red)">*</span>
-            <span class="sr-only">asterisk</span> are mandatory.
-        </p>
+        <p class="form-instructions">Fields marked with an asterisk (*) are mandatory.</p>
 
         <form action="{{ route('brands.store') }}" method="POST">
             @csrf
@@ -22,7 +19,7 @@
             <div class="form-grid">
                 <div class="form-field full">
                     <label for="name">
-                        Brand name <span aria-hidden="true" style="color:var(--red)">*</span>
+                        Brand name <span aria-hidden="true" class="required-mark">*</span>
                     </label>
                     <input id="name"
                         type="text"
