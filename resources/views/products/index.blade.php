@@ -102,4 +102,6 @@
     });
 </script>
 
+    {{ $products->links() }}
+
 @endsection

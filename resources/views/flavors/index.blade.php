@@ -53,6 +53,7 @@
             @endforelse
         </tbody>
     </table>
+    {{ $flavors->links('partials.pagination') }}
 </div>
 
 @endsection

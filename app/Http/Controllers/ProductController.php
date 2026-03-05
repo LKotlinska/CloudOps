@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with(['brand', 'flavors', 'productVape.color'])->get();
+        $products = Product::with(['brand', 'flavors', 'productVape.color'])->paginate(15);
         $brands   = Brand::all();
         $flavors  = Flavor::all();
         $colors   = Color::all();
@@ -80,7 +80,7 @@ class ProductController extends Controller
             $query->whereHas('productVape', fn($q) => $q->where('color_id', $request->color));
         }
 
-        $products = $query->get();
+        $products = $query->paginate(15)->withQueryString();
         $categories = Category::all();
         $brands     = Brand::all();
         $flavors    = Flavor::all();
