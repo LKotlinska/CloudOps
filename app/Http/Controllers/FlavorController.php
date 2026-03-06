@@ -41,14 +41,6 @@ class FlavorController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Flavor $flavor)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(Flavor $flavor)
