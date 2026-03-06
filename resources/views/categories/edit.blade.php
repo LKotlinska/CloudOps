@@ -1,34 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit category</title>
-</head>
-<body>
+@extends('layouts.app')
 
-    <form action="/logout" method="POST">
-        @csrf
-        <button type="submit">Logout</button>
-    </form>
+@section('title', 'Edit Category')
+@section('page-title', 'Edit Category')
 
-    <form action="{{ route('categories.update', $category) }}" method="POST">
-        @csrf
-        @method('PUT')
-        
-        <label for="name">Category name</label>
-        <input
-            type="text" 
-            id="name" 
-            name="name"
-            placeholder="e.g. E-liquid"
-            value="{{ $category->name }}"
-            required
-        />
+@section('header-actions')
+<a href="{{ route('categories.index') }}" class="btn btn-ghost">← Back to categories</a>
+@endsection
 
-        <button type="submit">Save changes</a>
-    </form>
+@section('content')
 
-</body>
-</html>
+<div class="form-page">
+    <div class="form-page-card">
+        <p class="form-instructions">
+            Fields marked with <span aria-hidden="true" style="color:var(--red)">*</span>
+            <span class="sr-only">asterisk</span> are mandatory.
+        </p>
+
+        <form action="{{ route('categories.update', $category) }}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="form-grid">
+                <div class="form-field full">
+                    <label for="name">Category name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        class="form-input"
+                        name="name"
+                        placeholder="e.g. E-liquid"
+                        value="{{ $category->name }}"
+                        required
+                    />
+                    @error('name')
+                    <span id="name-error" class="form-error" role="alert">⚠ {{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-page-actions">
+
+                <form action="{{ route('categories.destroy', $category) }}" method="POST"
+                    onsubmit="return confirm('Delete {{ addslashes($category->name) }}? This cannot be undone.')">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">✕ Delete category</button>
+                </form>
+
+                <div style="display:flex;gap:10px">
+                    <a href="{{ route('categories.index') }}" class="btn btn-ghost">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+@endsection
