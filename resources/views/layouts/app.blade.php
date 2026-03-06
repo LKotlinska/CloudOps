@@ -27,8 +27,8 @@
         <nav>
             <div class="nav-section">Catalogue</div>
             <a href="{{ route('start-page') }}"
-                class="nav-item {{ request()->routeIs('start-page') ? 'active' : '' }}"
-                aria-current="{{ request()->routeIs('start-page') ? 'page' : 'false' }}">
+                class="nav-item {{ request()->routeIs('start.*') ? 'active' : '' }}"
+                aria-current="{{ request()->routeIs('start.*') ? 'page' : 'false' }}">
                 <span class="nav-icon" aria-hidden="true">▦</span> Overview
             </a>
             <a href="{{ route('products.index') }}"
@@ -95,8 +95,7 @@
         </div>
 
     </main>
-
-    <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
 
 </body>
