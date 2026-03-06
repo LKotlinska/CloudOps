@@ -248,8 +248,8 @@
             </div>
 
             <div class="form-page-actions">
-                <a href="{{ route('brands.index') }}" class="btn btn-ghost">Cancel</a>
-                <button type="submit" class="btn btn-primary">Save brand</button>
+                <a href="{{ route('products.index') }}" class="btn btn-ghost">Cancel</a>
+                <button type="submit" class="btn btn-primary">Save product</button>
             </div>
         </form>
     </div>
