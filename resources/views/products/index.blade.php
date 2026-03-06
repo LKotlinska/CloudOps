@@ -33,7 +33,7 @@
                     $catBadges = ['Vape' => 'badge-vape', 'E-liquid' => 'badge-eliquid', 'Nic Salt' => 'badge-nicsalt'];
                     $catName = $product->category->name ?? '';
                     @endphp
-                    <tr class="clickable-row" data-href="{{ route('products.show', $product) }}" style="cursor:pointer;">
+                    <tr class="clickable-row" data-href="{{ route('products.show', $product) }}">
                         <td>
                             <div class="product-cell">
                                 <div class="product-thumb" aria-hidden="true">
@@ -50,15 +50,15 @@
                                 {{ $catName }}
                             </span>
                         </td>
-                        <td style="color:var(--color-text-secondary)">{{ $product->brand->name ?? '—' }}</td>
+                        <td>{{ $product->brand->name ?? '—' }}</td>
                         <td>{{ number_format($product->price, 2) }} kr</td>
                         <td class="{{ $stockClass }}" aria-label="Stock: {{ $stockText }}">
                             {{ $stockText }}
                         </td>
                         <td>
-                            <span style="display:flex;align-items:center;gap:0.375rem;">
+                            <span>
                                 <span class="status-dot {{ $product->stock > 0 ? 'active' : 'inactive' }}" aria-hidden="true"></span>
-                                <span style="color:var(--color-text-secondary)">
+                                <span>
                                     {{ $product->stock > 0 ? 'Active' : 'Inactive' }}
                                 </span>
                             </span>
