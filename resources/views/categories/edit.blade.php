@@ -12,7 +12,7 @@
 <div class="form-page">
     <div class="form-page-card">
         <p class="form-instructions">
-            Fields marked with <span aria-hidden="true" style="color:var(--red)">*</span>
+            Fields marked with <span aria-hidden="true">*</span>
             <span class="sr-only">asterisk</span> are mandatory.
         </p>
 
@@ -46,7 +46,7 @@
                     <button type="submit" class="btn btn-danger">✕ Delete category</button>
                 </form>
 
-                <div style="display:flex;gap:10px">
+                <div>
                     <a href="{{ route('categories.index') }}" class="btn btn-ghost">Cancel</a>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>

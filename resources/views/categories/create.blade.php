@@ -12,7 +12,7 @@
 <div class="form-page">
     <div class="form-page-card">
         <p class="form-instructions">
-            Fields marked with <span aria-hidden="true" style="color:var(--red)">*</span>
+            Fields marked with <span aria-hidden="true">*</span>
             <span class="sr-only">asterisk</span> are mandatory.
         </p>
 

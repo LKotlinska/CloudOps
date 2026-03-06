@@ -70,7 +70,7 @@
                     <tr>
                         <th scope="row">In stock</th>
                         <td>
-                            <span style="display:flex;align-items:center;gap:0.375rem;">
+                            <span>
                                 <span class="status-dot {{ $product->stock > 0 ? 'active' : 'inactive' }}" aria-hidden="true"></span>
                                 {{ $product->stock }}
                             </span>
