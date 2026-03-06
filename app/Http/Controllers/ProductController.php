@@ -30,7 +30,7 @@ class ProductController extends Controller
      */
     public function startPage(Request $request)
     {
-        $query = Product::with(['category', 'brand', 'flavors', 'productVapes.color']);
+        $query = Product::with(['category', 'brand', 'flavors', 'productVape.color']);
 
         // Filter by category tab
         if ($request->filled('category')) {
@@ -75,7 +75,7 @@ class ProductController extends Controller
 
         // Filter by color (via product_vapes table)
         if ($request->filled('color')) {
-            $query->whereHas('productVapes', fn($q) => $q->where('color_id', $request->color));
+            $query->whereHas('productVape', fn($q) => $q->where('color_id', $request->color));
         }
 
         $products = $query->get();
