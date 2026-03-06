@@ -90,8 +90,9 @@
                     @endforelse
         </tbody>
     </table>
-        {{ $products->links('partials.pagination') }}
+    {{ $products->links('partials.pagination') }}
 </div>
+
 
 <script>
     document.querySelectorAll('.clickable-row').forEach(row => {

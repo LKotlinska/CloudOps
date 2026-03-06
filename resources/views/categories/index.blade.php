@@ -54,8 +54,8 @@
             @endforelse
         </tbody>
     </table>
+    {{ $categories->links('partials.pagination') }}
 </div>
 
-    {{ $categories->links() }}
 
 @endsection
