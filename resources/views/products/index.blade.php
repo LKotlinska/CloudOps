@@ -64,20 +64,18 @@
                             </span>
                         </td>
                         <td>
-                            <div class="inline-buttons">
-                                <a href="{{ route('products.edit', $product) }}"
-                                    class="btn btn-ghost btn-sm"
-                                    aria-label="Edit {{ $product->name }}">✎ Edit</a>
+                            <a href="{{ route('products.edit', $product) }}"
+                                class="btn btn-ghost btn-sm"
+                                aria-label="Edit {{ $product->name }}">✎ Edit</a>
 
-                                <form action="{{ route('products.destroy', $product) }}" method="POST"
-                                    onsubmit="return confirm('Delete {{ addslashes($product->name) }}?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit"
-                                        class="btn btn-danger btn-sm"
-                                        aria-label="Delete {{ $product->name }}">✕</button>
-                                </form>
-                            </div>
+                            <form action="{{ route('products.destroy', $product) }}" method="POST"
+                                onsubmit="return confirm('Delete {{ addslashes($product->name) }}?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                    class="btn btn-danger btn-sm"
+                                    aria-label="Delete {{ $product->name }}">✕</button>
+                            </form>
                         </td>
                     </tr>
                     @empty
