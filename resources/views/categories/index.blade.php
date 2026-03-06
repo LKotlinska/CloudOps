@@ -1,36 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Categories</title>
-</head>
-<body>
-    <form action="/logout" method="POST">
-        @csrf
-        <button type="submit">Logout</button>
-    </form>
-    
-    <h1>Here are all the categories</h1>
+@extends('layouts.app')
 
-    <a href="{{ route('categories.create') }}">New category</a>
+@section('title', 'Categories')
+@section('page-title', 'Categories')
 
-    @foreach ($categories as $category)
+@section('header-actions')
+<a href="{{ route('categories.create') }}" class="btn btn-primary">
+    + New category
+</a>
+@endsection
 
-        <a href="{{ route('categories.show', $category)}}">
-            {{ $category->name }}
-        </a>
+@section('content')
 
-        <a href="{{ route('categories.edit', $category) }}">Edit</a>
+<div class="list-table-wrap" role="region" aria-label="Category list">
+    <table aria-label="Categories">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Products</th>
+                <th scope="col"><span class="sr-only">Actions</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse($categories as $category)
+            <tr>
+                <td>{{ $category->name }}</td>
+                <td>{{ $category->products_count }}</td>
+                <td>
+                    <div>
+                        <a href="{{ route('categories.edit', $category) }}"
+                            class="btn btn-ghost btn-sm"
+                            aria-label="Edit {{ $category->name }}">✎ Edit</a>
 
-        <form action="{{ route('categories.destroy', $category)}}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit">Delete</button>
-        </form>
+                        <form action="{{ route('categories.destroy', $category) }}" method="POST"
+                            onsubmit="return confirm('Delete {{ addslashes($category->name) }}?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                class="btn btn-danger btn-sm"
+                                aria-label="Delete {{ $category->name }}">✕</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            @empty
+            <tr>
+                <td colspan="3">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">◉</div>
+                        <div class="empty-state-text">No brands found.</div>
+                    </div>
+                </td>
+            </tr>
+            @endforelse
+        </tbody>
+    </table>
+</div>
 
-    @endforeach
-
-</body>
-</html>
+@endsection
