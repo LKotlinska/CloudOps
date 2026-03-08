@@ -19,7 +19,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/products');
+            return redirect()->intended('/start');
         } else {
             return back()->withErrors([
                 'email' => "Whoops! Please try to login again."

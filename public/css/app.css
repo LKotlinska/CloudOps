@@ -1,0 +1,66 @@
+:root {
+    /* Backgrounds */
+    --color-bg-page:        #0d0d0f;
+    --color-bg-card:        #141417;
+    --color-bg-input:       #1c1c21;
+    --color-bg-hover:       #24242b;
+
+    /* Borders */
+    --color-border:         #2e2e38;
+
+    /* Brand colors */
+    --color-accent-primary: #7c6af7;
+    --color-accent-purple:  #c084fc;
+    --color-accent-blue: rgb(0, 200, 255);
+
+    /* Semantic colors */
+    --color-success:        #34d399;
+    --color-danger:         #f87171;
+    --color-warning:        #fbbf24;
+
+    /* Text */
+    --color-text-primary:   #e8e8f0;
+    --color-text-secondary: #9898b0;
+    --color-text-muted:     #7c7cb9;
+
+    /* Typography */
+    --font-heading: 'Syne', sans-serif;
+    --font-body:    'DM Mono', monospace;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--color-bg-page);
+    color: var(--color-text-primary);
+    min-height: 100vh;
+    display: flex;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--color-accent-primary);
+    outline-offset: 2px;
+}
+
+select option {
+    background: var(--color-bg-input);
+}
