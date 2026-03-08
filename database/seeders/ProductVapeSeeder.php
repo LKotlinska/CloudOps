@@ -14,15 +14,14 @@ class ProductVapeSeeder extends Seeder
      */
     public function run(): void
     {
-        $productIds = Product::pluck('id');
+        $vapeProductIds = Product::whereHas('category', fn($q) => $q->where('name', 'Vape'))->pluck('id');
         $colorIds = Color::pluck('id');
 
-        ProductVape::factory()
-            ->count($productIds->count())
-            ->state(fn() => [
-                'product_id' => $productIds->random(),
+        foreach ($vapeProductIds as $productId) {
+            ProductVape::factory()->create([
+                'product_id' => $productId,
                 'color_id' => $colorIds->random(),
-            ])
-            ->create();
+            ]);
+        }
     }
 }

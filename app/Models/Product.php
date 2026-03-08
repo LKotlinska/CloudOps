@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Product extends Model
 {
@@ -34,9 +34,9 @@ class Product extends Model
         return $this->belongsTo(Brand::class);
     }
 
-    public function productVapes(): HasMany
+    public function productVape(): HasOne
     {
-        return $this->hasMany(ProductVape::class);
+        return $this->hasOne(ProductVape::class);
     }
 
     public function flavors(): BelongsToMany
