@@ -15,7 +15,7 @@
 <div class="stats-row" role="region" aria-label="Overview">
     <article class="stat-card" aria-label="Total number of products">
         <div class="stat-label">Total</div>
-        <div class="stat-value stat-value-total">{{ $products->count() }}</div>
+        <div class="stat-value">{{ $products->total() }}</div>
         <div class="stat-sub">products</div>
     </article>
     <article class="stat-card" aria-label="Number of vape units">
@@ -207,11 +207,8 @@
         </tbody>
     </table>
 
-    <nav class="pagination" aria-label="Page navigation">
-        <div class="pagination-info" aria-live="polite">
-            {{ $products->count() }} products
-        </div>
-    </nav>
+    {{-- PAGINATION --}}
+    {{ $products->links('partials.pagination') }}
 </div>
 
 @endsection
