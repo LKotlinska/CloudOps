@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Categories')
-@section('page-title', 'Categories')
+@section('title', 'Products')
+@section('page-title', 'Products')
 
 @section('header-actions')
-<a href="{{ route('categories.create') }}" class="btn btn-primary">
-    + New category
+<a href="{{ route('products.create') }}" class="btn btn-primary">
+    + New product
 </a>
 @endsection
 
