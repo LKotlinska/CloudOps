@@ -90,7 +90,9 @@
                     @endforelse
         </tbody>
     </table>
+
     {{ $products->links('partials.pagination') }}
+    
 </div>
 
 

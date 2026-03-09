@@ -53,7 +53,9 @@
             @endforelse
         </tbody>
     </table>
+
     {{ $colors->links('partials.pagination') }}
+    
 </div>
 
 @endsection
