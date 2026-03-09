@@ -37,19 +37,21 @@
             </div>
 
             <div class="form-page-actions">
-                <form action="{{ route('brands.destroy', $brand) }}" method="POST"
-                    onsubmit="return confirm('Delete {{ addslashes($brand->name) }}? This cannot be undone.')">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">✕ Delete brand</button>
-                </form>
-
                 <div class="d-flex gap-md">
                     <a href="{{ route('brands.index') }}" class="btn btn-ghost">Cancel</a>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </form>
+
+        {{-- Delete outside the update form --}}
+        <form action="{{ route('brands.destroy', $brand) }}" method="POST"
+            onsubmit="return confirm('Delete {{ addslashes($brand->name) }}? This cannot be undone.')">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">✕ Delete brand</button>
+        </form>
+
     </div>
 </div>
 
