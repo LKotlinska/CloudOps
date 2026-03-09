@@ -1,33 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create category</title>
-</head>
-<body>
+@extends('layouts.app')
 
-    <form action="/logout" method="POST">
-        @csrf
-        <button type="submit">Logout</button>
-    </form>
+@section('title', 'New Category')
+@section('page-title', 'New Category')
 
-    <form action="{{ route('categories.store') }}" method="POST">
-        @csrf
-        
-        <label for="name">Category name</label>
-        <input
-            type="text" 
-            id="name" 
-            name="name"
-            placeholder="e.g. E-liquid"
-            value="{{ old('name') }}"
-            required
-        />
+@section('header-actions')
+<a href="{{ route('categories.index') }}" class="btn btn-ghost">← Back to categories</a>
+@endsection
 
-        <button type="submit">Add category</button>
-    </form>
+@section('content')
 
-</body>
-</html>
+<div class="form-page">
+    <div class="form-page-card">
+        <p class="form-instructions">
+            Fields marked with <span aria-hidden="true">*</span>
+            <span class="sr-only">asterisk</span> are mandatory.
+        </p>
+
+        <form action="{{ route('categories.store') }}" method="POST">
+            @csrf
+            <div class="form-grid">
+                <div class="form-field full">
+                    <label for="name">Category name</label>
+                    <input
+                        type="text" 
+                        id="name"
+                        class="form-input"
+                        name="name"
+                        placeholder="e.g. E-liquid"
+                        value="{{ old('name') }}"
+                        required
+                    />
+                    @error('name')
+                        <span id="name-error" class="form-error" role="alert">⚠ {{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-page-actions">
+                <a href="{{ route('categories.index') }}" class="btn btn-ghost">Cancel</a>
+                <button type="submit" class="btn btn-primary">Save category</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@endsection
