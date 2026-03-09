@@ -68,6 +68,10 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
+        if ($brand->products()->exists()) {
+            return redirect()->back()->with('error', 'Cannot delete "' . $brand->name . '" because it has products assigned to it.');
+        }
+
         $brand->delete();
 
         return redirect()->route('brands.index')
