@@ -4,8 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use App\Models\Product;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Color extends Model
 {
@@ -15,8 +14,8 @@ class Color extends Model
         'name',
     ];
 
-    public function products(): BelongsToMany
+    public function productVapes(): HasMany
     {
-        return $this->belongsToMany(Product::class);
+        return $this->hasMany(ProductVape::class);
     }
 }
