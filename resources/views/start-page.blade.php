@@ -15,7 +15,7 @@
 <div class="stats-row" role="region" aria-label="Overview">
     <article class="stat-card" aria-label="Total number of products">
         <div class="stat-label">Total</div>
-        <div class="stat-value">{{ $products->total() }}</div>
+        <div class="stat-value stat-value-total">{{ $products->total() }}</div>
         <div class="stat-sub">products</div>
     </article>
     <article class="stat-card" aria-label="Number of vape units">
