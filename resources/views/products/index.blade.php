@@ -41,7 +41,6 @@
                                 </div>
                                 <div>
                                     <div class="product-name">{{ $product->name }}</div>
-                                    <div class="product-sku">{{ $product->brand->name ?? '—' }}</div>
                                 </div>
                             </div>
                         </td>
