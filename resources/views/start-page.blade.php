@@ -188,11 +188,6 @@
                                 <span class="text-secondary">{{ $product->stock > 0 ? 'Active' : 'Inactive' }}</span>
                             </div>
                         </td>
-                        <td>
-                            <a href="{{ route('products.edit', $product) }}"
-                                class="btn btn-ghost btn-sm"
-                                aria-label="Edit {{ $product->name }}">✎ Edit</a>
-                        </td>
                     </tr>
                     @empty
                     <tr>
