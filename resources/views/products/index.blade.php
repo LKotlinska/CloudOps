@@ -29,8 +29,8 @@
             @php
             $stockClass = $product->stock === 0 ? 'stock-out' : ($product->stock < 10 ? 'stock-low' : 'stock-ok' );
                 $stockText=$product->stock === 0 ? 'Out of stock' : ($product->stock < 10 ? $product->stock . ' (low)' : $product->stock);
-                    $catIcons = ['Vape' => '🌬️', 'E-liquid' => '💧', 'Nic Salt' => '⚗️'];
-                    $catBadges = ['Vape' => 'badge-vape', 'E-liquid' => 'badge-eliquid', 'Nic Salt' => 'badge-nicsalt'];
+                    $catIcons = ['Vape' => '🌬️', 'E-Liquid' => '💧', 'Nicotine salt' => '⚗️'];
+                    $catBadges = ['Vape' => 'badge-vape', 'E-Liquid' => 'badge-eliquid', 'Nicotine salt' => 'badge-nicsalt'];
                     $catName = $product->category->name ?? '';
                     @endphp
                     <tr class="clickable-row" data-href="{{ route('products.show', $product) }}">
