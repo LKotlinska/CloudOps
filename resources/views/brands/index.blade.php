@@ -53,6 +53,9 @@
             @endforelse
         </tbody>
     </table>
+
+    {{ $brands->links('partials.pagination') }}
+    
 </div>
 
 @endsection

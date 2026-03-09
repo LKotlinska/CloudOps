@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with(['brand', 'flavors', 'productVape.color'])->get();
+        $products = Product::with(['brand', 'flavors', 'productVape.color'])->paginate(15);
         $brands   = Brand::all();
         $flavors  = Flavor::all();
         $colors   = Color::all();

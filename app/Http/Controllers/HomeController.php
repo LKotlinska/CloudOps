@@ -64,7 +64,7 @@ class HomeController extends Controller
             $query->whereHas('productVape', fn($q) => $q->where('color_id', $request->color));
         }
 
-        $products = $query->get();
+        $products = Product::with(['brand', 'flavors', 'productVape.color'])->paginate(15);
         $categories = Category::all();
         $brands     = Brand::all();
         $flavors    = Flavor::all();
