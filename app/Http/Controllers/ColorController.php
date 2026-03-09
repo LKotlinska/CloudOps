@@ -68,7 +68,7 @@ class ColorController extends Controller
      */
     public function destroy(Color $color)
     {
-        if ($color->products()->exists()) {
+        if ($color->productVapes()->exists()) {
             return redirect()->back()->with('error', 'Cannot delete "' . $color->name . '" because it has products assigned to it.');
         }
 
