@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Color')
-@section('page-title', 'Edit Color')
+@section('title', 'Edit Brand')
+@section('page-title', 'Edit Brand')
 
 @section('header-actions')
-<a href="{{ route('colors.index') }}" class="btn btn-ghost">← Back to colors</a>
+<a href="{{ route('brands.index') }}" class="btn btn-ghost">← Back to brands</a>
 @endsection
 
 @section('content')
