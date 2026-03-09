@@ -1,0 +1,44 @@
+main {
+    display: flex;
+    flex-direction: column;
+    /* margin: 60px auto; */
+    justify-content: center;
+    background: var(--color-bg-card);
+    width: 100vw;
+}
+
+.login {
+    padding: 60px;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-page);
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.login h1 {
+    font-family: var(--font-heading);
+    color: var(--color-text-primary);
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login form label {
+    margin-top: 20px;
+}
+
+.login form input {
+    background: var(--color-bg-input);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+}
+
+.login form .btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
