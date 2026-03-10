@@ -411,3 +411,7 @@ textarea {
     overflow: hidden;
     margin-top: 1.25rem;
 }
+
+.clickable-row {
+    cursor: pointer;
+}
