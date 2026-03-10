@@ -216,14 +216,12 @@
     </div>
 </div>
 
-@endsection
-
 <script>
     document.addEventListener('DOMContentLoaded', () => {
     const select = document.getElementById('category_id');
 
     select.addEventListener('change', toggleVapeFields);
-    
+
     toggleVapeFields();
 });
 
@@ -242,3 +240,5 @@
 
     }
 </script>
+
+@endsection
