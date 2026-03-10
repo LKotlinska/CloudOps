@@ -66,7 +66,11 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        Category::destroy($category->id);
+        if ($category->products()->exists()) {
+            return redirect()->back()->with('error', 'Cannot delete "' . $category->name . '" because it has products assigned to it.');
+        }
+
+        $category->delete();
         return redirect()->route('categories.index')->with('success', 'Category deleted.');
     }
 }

@@ -68,6 +68,10 @@ class FlavorController extends Controller
      */
     public function destroy(Flavor $flavor)
     {
+        if ($flavor->products()->exists()) {
+            return redirect()->back()->with('error', 'Cannot delete "' . $flavor->name . '" because it has products assigned to it.');
+        }
+
         $flavor->delete();
 
         return redirect()->route('flavors.index')
