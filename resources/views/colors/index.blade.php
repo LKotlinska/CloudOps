@@ -16,7 +16,7 @@
         <thead>
             <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Amount</th>
+                <th scope="col" class="amount">Amount</th>
                 <th scope="col"><span class="sr-only">Actions</span></th>
             </tr>
         </thead>
@@ -55,7 +55,7 @@
     </table>
 
     {{ $colors->links('partials.pagination') }}
-    
+
 </div>
 
 @endsection
