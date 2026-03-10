@@ -11,6 +11,7 @@
         rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     <title>CloudOps</title>
 </head>
@@ -18,20 +19,32 @@
 <body>
     <main>
         <div class="login">
-            <h1>Login Page</h1>
+            <h1>Welcome</h1>
+            <p>Sign in to your admin account</p>
             @include('errors')
             <form action="/login" method="POST">
                 @csrf
 
                 <label for="email">Email address</label>
-                <input type="email" id="email" name="email" value="{{ old('email') }}">
+                <input type="email"
+                    id="email"
+                    class="form-input"
+                    name="email"
+                    placeholder="admin@cloudops.se"
+                    value="{{ old('email') }}">
 
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" value="{{ old('password') }}">
+                <input type="password"
+                    id="password"
+                    class="form-input"
+                    name="password"
+                    placeholder="••••••"
+                    value="{{ old('password') }}">
 
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">Sign in</button>
 
             </form>
+            <div class="logo-mark">CloudOps</div>
         </div>
     </main>
 </body>
