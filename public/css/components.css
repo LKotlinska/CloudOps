@@ -319,6 +319,10 @@ textarea {
     text-align: center;
 }
 
+#text-sec {
+    text-align: center;
+}
+
 .text-muted {
     color: var(--color-text-muted);
 }
