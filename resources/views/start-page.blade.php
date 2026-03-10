@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Overview')
-@section('page-title', 'Overview')
+@section('page-title', 'Overview of all products')
 
 @section('header-actions')
 <a href="{{ route('products.create') }}" class="btn btn-primary">
