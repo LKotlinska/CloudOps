@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Categories')
-@section('page-title', 'Categories')
+@section('title', 'Products')
+@section('page-title', 'Products')
 
 @section('header-actions')
-<a href="{{ route('categories.create') }}" class="btn btn-primary">
-    + New category
+<a href="{{ route('products.create') }}" class="btn btn-primary">
+    + New product
 </a>
 @endsection
 
@@ -29,8 +29,8 @@
             @php
             $stockClass = $product->stock === 0 ? 'stock-out' : ($product->stock < 10 ? 'stock-low' : 'stock-ok' );
                 $stockText=$product->stock === 0 ? 'Out of stock' : ($product->stock < 10 ? $product->stock . ' (low)' : $product->stock);
-                    $catIcons = ['Vape' => '🌬️', 'E-liquid' => '💧', 'Nic Salt' => '⚗️'];
-                    $catBadges = ['Vape' => 'badge-vape', 'E-liquid' => 'badge-eliquid', 'Nic Salt' => 'badge-nicsalt'];
+                    $catIcons = ['Vape' => '🌬️', 'E-Liquid' => '💧', 'Nicotine salt' => '⚗️'];
+                    $catBadges = ['Vape' => 'badge-vape', 'E-Liquid' => 'badge-eliquid', 'Nicotine salt' => 'badge-nicsalt'];
                     $catName = $product->category->name ?? '';
                     @endphp
                     <tr class="clickable-row" data-href="{{ route('products.show', $product) }}">
@@ -41,7 +41,6 @@
                                 </div>
                                 <div>
                                     <div class="product-name">{{ $product->name }}</div>
-                                    <div class="product-sku">{{ $product->brand->name ?? '—' }}</div>
                                 </div>
                             </div>
                         </td>
@@ -64,18 +63,19 @@
                             </span>
                         </td>
                         <td>
-                            <a href="{{ route('products.edit', $product) }}"
-                                class="btn btn-ghost btn-sm"
-                                aria-label="Edit {{ $product->name }}">✎ Edit</a>
-
-                            <form action="{{ route('products.destroy', $product) }}" method="POST"
-                                onsubmit="return confirm('Delete {{ addslashes($product->name) }}?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    class="btn btn-danger btn-sm"
-                                    aria-label="Delete {{ $product->name }}">✕</button>
-                            </form>
+                            <div class="td-actions">
+                                <a href="{{ route('products.edit', $product) }}"
+                                    class="btn btn-ghost btn-sm"
+                                    aria-label="Edit {{ $product->name }}">✎ Edit</a>
+                                <form action="{{ route('products.destroy', $product) }}" method="POST"
+                                    onsubmit="return confirm('Delete {{ addslashes($product->name) }}?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="btn btn-danger btn-sm"
+                                        aria-label="Delete {{ $product->name }}">✕</button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     @empty

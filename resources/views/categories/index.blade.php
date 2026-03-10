@@ -26,11 +26,10 @@
                 <td>{{ $category->name }}</td>
                 <td>{{ $category->products_count }}</td>
                 <td>
-                    <div>
+                    <div class="td-actions">
                         <a href="{{ route('categories.edit', $category) }}"
                             class="btn btn-ghost btn-sm"
                             aria-label="Edit {{ $category->name }}">✎ Edit</a>
-
                         <form action="{{ route('categories.destroy', $category) }}" method="POST"
                             onsubmit="return confirm('Delete {{ addslashes($category->name) }}?')">
                             @csrf
