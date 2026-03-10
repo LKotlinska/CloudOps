@@ -12,7 +12,7 @@ class ColorController extends Controller
      */
     public function index()
     {
-        $colors = Color::paginate(15);
+        $colors = Color::withCount('productVapes')->paginate(15);
 
         return view('colors.index', compact('colors'));
     }
