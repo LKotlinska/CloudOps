@@ -65,17 +65,18 @@
             </form>
         </nav>
     </aside>
+    <div>
+
+    <!-- TOPBAR -->
+    <header>
+        <h1 class="page-title">@yield('page-title', 'Dashboard')</h1>
+        <div class="header-actions">
+            @yield('header-actions')
+        </div>
+    </header>
 
     <!-- MAIN -->
     <main id="main-content">
-
-        <!-- TOPBAR -->
-        <header role="banner">
-            <h1 class="page-title">@yield('page-title', 'Dashboard')</h1>
-            <div class="header-actions">
-                @yield('header-actions')
-            </div>
-        </header>
 
         <div class="content">
 
@@ -99,5 +100,5 @@
     @yield('scripts')
 
 </body>
-
+<div>
 </html>
