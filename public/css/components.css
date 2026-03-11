@@ -128,17 +128,6 @@
     border-color: var(--color-accent-primary);
 }
 
-.chip:hover {
-    border-color: var(--color-accent-primary);
-    color: var(--color-accent-purple);
-}
-
-.chip.selected {
-    background: var(--color-accent-primary);
-    color: #fff;
-    border-color: var(--color-accent-primary);
-}
-
 .flavor-chip {
     cursor: auto;
 }
