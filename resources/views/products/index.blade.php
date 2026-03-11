@@ -34,14 +34,7 @@
                     @endphp
                     <tr class="clickable-row" data-href="{{ route('products.show', $product) }}">
                         <td>
-                            <div class="product-cell">
-                                <div class="product-thumb" aria-hidden="true">
-                                    {{ $catIcons[$catName] ?? '📦' }}
-                                </div>
-                                <div>
-                                    <div class="product-name">{{ ucwords($product->name) }}</div>
-                                </div>
-                            </div>
+                            <div class="product-name">{{ ucwords($product->name) }}</div>
                         </td>
                         <td>
                             <span class="badge {{ $catBadges[$catName] ?? '' }}">
