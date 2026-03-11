@@ -273,7 +273,7 @@ textarea {
 
 .product-view {
     border: none;
-    padding-top: none;
+    padding-top: 0;
 }
 
 /* ── ALERT / FLASH MESSAGES ── */
