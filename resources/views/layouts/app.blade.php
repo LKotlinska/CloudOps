@@ -19,7 +19,7 @@
 <body>
 
     <!-- SIDEBAR -->
-    <aside role="navigation" aria-label="Main menu">
+    <aside aria-label="Main menu">
         <a href="{{ route('start-page') }}" class="logo">
             <div class="logo-mark">CloudOps</div>
             <div class="logo-sub">Product management</div>
