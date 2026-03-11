@@ -347,8 +347,12 @@ textarea {
     gap: 0.625rem;
 }
 
-.width-100 {
-    width: 100%;
+.main-container {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    height: 100vh;
 }
 
 /* ── NAV LOGOUT BUTTON ── */

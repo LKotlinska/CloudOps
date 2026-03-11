@@ -65,7 +65,7 @@
             </form>
         </nav>
     </aside>
-    <div class="width-100">
+    <div class="main-container">
 
     <!-- TOPBAR -->
     <header>

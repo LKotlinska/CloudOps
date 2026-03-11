@@ -45,6 +45,8 @@ body {
     display: flex;
     font-size: 1rem;
     line-height: 1.5;
+    overflow: hidden;
+    max-width: 100vw;
 }
 
 .sr-only {
