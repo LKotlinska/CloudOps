@@ -316,6 +316,11 @@ textarea {
 /* ── UTILITY CLASSES ── */
 .text-secondary {
     color: var(--color-text-secondary);
+    text-align: center;
+}
+
+#text-sec {
+    text-align: center;
 }
 
 .text-muted {
@@ -356,6 +361,7 @@ textarea {
 /* ── TABLE UTILITIES ── */
 .td-actions {
     display: flex;
+    justify-content: flex-end;
     gap: 0.375rem;
 }
 

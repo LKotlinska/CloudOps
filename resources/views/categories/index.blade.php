@@ -16,15 +16,15 @@
         <thead>
             <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Products</th>
+                <th scope="col" class="column-title">Amount</th>
                 <th scope="col"><span class="sr-only">Actions</span></th>
             </tr>
         </thead>
         <tbody>
             @forelse($categories as $category)
             <tr>
-                <td>{{ $category->name }}</td>
-                <td>{{ $category->products_count }}</td>
+                <td class="text-bold">{{ $category->name }}</td>
+                <td class="text-secondary">{{ $category->products_count }}</td>
                 <td>
                     <div class="td-actions">
                         <a href="{{ route('categories.edit', $category) }}"
@@ -55,8 +55,7 @@
     </table>
 
     {{ $categories->links('partials.pagination') }}
-    
-</div>
 
+</div>
 
 @endsection

@@ -20,10 +20,10 @@
 
     <!-- SIDEBAR -->
     <aside role="navigation" aria-label="Main menu">
-        <div class="logo">
+        <a href="{{ route('start-page') }}" class="logo">
             <div class="logo-mark">CloudOps</div>
             <div class="logo-sub">Product management</div>
-        </div>
+        </a>
         <nav>
             <div class="nav-section">Catalogue</div>
             <a href="{{ route('start-page') }}"

@@ -16,6 +16,10 @@ aside {
     margin-bottom: 1.25rem;
 }
 
+a.logo {
+    text-decoration: none;
+}
+
 .logo-mark {
     font-family: var(--font-heading);
     font-size: 1.375rem;

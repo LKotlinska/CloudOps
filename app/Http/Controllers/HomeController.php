@@ -72,7 +72,7 @@ class HomeController extends Controller
 
         // Count products per category for stats cards
         $counts = $products
-            ->groupBy(fn($product) => $product->category->name)
+            ->groupBy(fn($product) => $product->category->name ?? 'Uncategorized')
             ->map->count();
 
         return view('start-page', compact(

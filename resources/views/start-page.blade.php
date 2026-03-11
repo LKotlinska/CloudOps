@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Overview')
-@section('page-title', 'Overview')
+@section('page-title', 'Overview of all products')
 
 @section('header-actions')
 <a href="{{ route('products.create') }}" class="btn btn-primary">
@@ -143,12 +143,12 @@
     <table aria-label="Products">
         <thead>
             <tr>
-                <th scope="col">Product</th>
-                <th scope="col">Category</th>
-                <th scope="col">Brand</th>
-                <th scope="col">Price</th>
-                <th scope="col">Stock</th>
-                <th scope="col">Status</th>
+                <th scope="col" class="column-title">Product</th>
+                <th scope="col" class="column-title">Category</th>
+                <th scope="col" class="column-title">Brand</th>
+                <th scope="col" class="column-title">Price</th>
+                <th scope="col" class="column-title">Stock</th>
+                <th scope="col" class="column-title">Status</th>
                 <th scope="col"><span class="sr-only">Actions</span></th>
             </tr>
         </thead>
@@ -178,8 +178,8 @@
                             </span>
                         </td>
                         <td class="text-secondary">{{ $product->brand->name ?? '—' }}</td>
-                        <td>{{ number_format($product->price, 2) }} kr</td>
-                        <td class="{{ $stockClass }}" aria-label="Stock: {{ $stockText }}">
+                        <td class="text-secondary">{{ number_format($product->price, 2) }} kr</td>
+                        <td id="text-sec" class="{{ $stockClass }}" aria-label="Stock: {{ $stockText }}">
                             {{ $stockText }}
                         </td>
                         <td>
