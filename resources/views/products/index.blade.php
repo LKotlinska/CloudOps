@@ -35,14 +35,7 @@
                     @endphp
                     <tr class="clickable-row" data-href="{{ route('products.show', $product) }}">
                         <td>
-                            <div class="product-cell">
-                                <div class="product-thumb" aria-hidden="true">
-                                    {{ $catIcons[$catName] ?? '📦' }}
-                                </div>
-                                <div>
-                                    <div class="product-name">{{ $product->name }}</div>
-                                </div>
-                            </div>
+                            <div class="product-name">{{ ucwords($product->name) }}</div>
                         </td>
                         <td>
                             <span class="badge {{ $catBadges[$catName] ?? '' }}">
@@ -66,7 +59,7 @@
                             <div class="td-actions">
                                 <a href="{{ route('products.edit', $product) }}"
                                     class="btn btn-ghost btn-sm"
-                                    aria-label="Edit {{ $product->name }}">✎ Edit</a>
+                                    aria-label="Edit {{ ucwords($product->name) }}">✎ Edit</a>
                                 <form action="{{ route('products.destroy', $product) }}" method="POST"
                                     onsubmit="return confirm('Delete {{ addslashes($product->name) }}?')">
                                     @csrf
