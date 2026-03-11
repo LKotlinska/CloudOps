@@ -146,9 +146,10 @@
                 <th scope="col" class="column-title">Product</th>
                 <th scope="col" class="column-title">Category</th>
                 <th scope="col" class="column-title">Brand</th>
+                <th scope="col" class="column-title">Flavor</th>
+                <th scope="col" class="column-title">Color</th>
                 <th scope="col" class="column-title">Price</th>
                 <th scope="col" class="column-title">Stock</th>
-                <th scope="col"><span class="sr-only">Actions</span></th>
             </tr>
         </thead>
         <tbody>
@@ -177,6 +178,9 @@
                             </span>
                         </td>
                         <td class="text-secondary">{{ $product->brand->name ?? '—' }}</td>
+                        <td class="text-secondary">{{ $product->flavors->pluck('name')->join(', ')}}</td>
+                        <td class="text-secondary">{{ $product->productVape->color->name ?? '—' }}</td>
+                        </td>
                         <td class="text-secondary">{{ number_format($product->price, 2) }} kr</td>
                         <td id="text-sec" class="{{ $stockClass }}" aria-label="Stock: {{ $stockText }}">
                             {{ $stockText }}
