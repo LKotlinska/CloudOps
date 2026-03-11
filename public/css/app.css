@@ -1,3 +1,4 @@
+/* prettier-ignore */
 :root {
     /* Backgrounds */
     --color-bg-page:        #0d0d0f;
@@ -9,7 +10,7 @@
     --color-border:         #2e2e38;
 
     /* Brand colors */
-    --color-accent-primary: #7c6af7;
+    --color-accent-primary: #6e5ce6;
     --color-accent-purple:  #c084fc;
     --color-accent-blue: rgb(0, 200, 255);
 
@@ -28,7 +29,9 @@
     --font-body:    'DM Mono', monospace;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
