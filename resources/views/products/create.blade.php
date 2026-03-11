@@ -117,7 +117,7 @@
                             <span id="puff_count-error" class="form-error" role="alert">⚠ {{ $message }}</span>
                         @enderror
 
-                        <label for="color">Color *</label>
+                        <label for="color_id">Color *</label>
                         <select
                             id="color_id"
                             class="form-input"
