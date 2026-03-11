@@ -168,7 +168,7 @@
                                     {{ $catIcons[$catName] ?? '📦' }}
                                 </div>
                                 <div>
-                                    <div class="product-name">{{ $product->name }}</div>
+                                    <div class="product-name">{{ ucwords($product->name) }}</div>
                                 </div>
                             </div>
                         </td>
@@ -188,7 +188,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="7">
+                        <td colspan="6">
                             <div class="empty-state">
                                 <div class="empty-state-icon">📦</div>
                                 <div class="empty-state-text">No products found.</div>
