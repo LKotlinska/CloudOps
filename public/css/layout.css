@@ -24,7 +24,11 @@ a.logo {
     font-family: var(--font-heading);
     font-size: 1.375rem;
     font-weight: 800;
-    background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-purple));
+    background: linear-gradient(
+        135deg,
+        var(--color-accent-primary),
+        var(--color-accent-purple)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.03rem;
@@ -38,7 +42,9 @@ a.logo {
     margin-top: 0.125rem;
 }
 
-nav { flex: 1; }
+nav {
+    flex: 1;
+}
 
 .nav-section {
     font-size: 1rem;
@@ -81,10 +87,10 @@ nav { flex: 1; }
 
 /* ── MAIN ── */
 main {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: auto;
+    height: auto;
 }
 
 /* ── TOPBAR ── */
@@ -114,5 +120,5 @@ header {
 .content {
     flex: 1;
     padding: 1.75rem;
-    overflow-y: auto;
+    min-width: fit-content;
 }

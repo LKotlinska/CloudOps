@@ -65,6 +65,15 @@
             </form>
         </nav>
     </aside>
+    <div class="main-container">
+
+    <!-- TOPBAR -->
+    <header>
+        <h1 class="page-title">@yield('page-title', 'Dashboard')</h1>
+        <div class="header-actions">
+            @yield('header-actions')
+        </div>
+    </header>
 
     <!-- MAIN -->
     <main id="main-content">
