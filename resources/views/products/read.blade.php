@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $product->name)
-@section('page-title', $product->name)
+@section('title', ucwords($product->name))
+@section('page-title', ucwords($product->name))
 
 @section('header-actions')
 <a href="{{ route('products.index') }}" class="btn btn-ghost">← Back to products</a>
@@ -30,7 +30,7 @@
 
                     <tr>
                         <th scope="row">Product name</th>
-                        <td>{{ $product->name }}</td>
+                        <td>{{ ucwords($product->name) }}</td>
                     </tr>
 
                     <tr>

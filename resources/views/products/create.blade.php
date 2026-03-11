@@ -200,7 +200,7 @@
                         name="flavor_id" 
                         >
 
-                        <option value="" selected>Select your option</option>
+                        <option value="" selected>None</option>
 
                         @foreach ($flavors as $flavor)
                             <option value="{{ $flavor->id }}"
