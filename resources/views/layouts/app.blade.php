@@ -19,7 +19,7 @@
 <body>
 
     <!-- SIDEBAR -->
-    <aside role="navigation" aria-label="Main menu">
+    <aside aria-label="Main menu">
         <a href="{{ route('start-page') }}" class="logo">
             <div class="logo-mark">CloudOps</div>
             <div class="logo-sub">Product management</div>
@@ -78,14 +78,6 @@
     <!-- MAIN -->
     <main id="main-content">
 
-        <!-- TOPBAR -->
-        <header role="banner">
-            <h1 class="page-title">@yield('page-title', 'Dashboard')</h1>
-            <div class="header-actions">
-                @yield('header-actions')
-            </div>
-        </header>
-
         <div class="content">
 
             {{-- Flash messages --}}
@@ -108,5 +100,5 @@
     @yield('scripts')
 
 </body>
-
+<div>
 </html>
