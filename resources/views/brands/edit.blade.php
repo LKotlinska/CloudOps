@@ -11,7 +11,9 @@
 
 <div class="form-page">
     <div class="form-page-card">
-        <p class="form-instructions">Fields marked with an asterisk (*) are mandatory.</p>
+        <p class="form-instructions">
+            Fields marked with an asterisk (<span class="required-mark">*</span>) are mandatory.
+        </p>
 
         <form action="{{ route('brands.update', $brand) }}" method="POST">
             @csrf
