@@ -74,7 +74,7 @@
                     <!--  Conditionally rendered fields  -->
                     <div id="vape-fields">
 
-                        <label>Refillable *</label>
+                        <label for="has_podsystem">Refillable *</label>
 
                         <input 
                             type="radio"
