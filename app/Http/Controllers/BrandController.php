@@ -31,7 +31,7 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         $newBrand = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|min:2|max:30',
         ]);
 
         Brand::create($newBrand);
@@ -45,7 +45,7 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        return view('brands.edit', compact('brand',));
+        return view('brands.edit', compact('brand'));
     }
 
     /**
@@ -54,7 +54,7 @@ class BrandController extends Controller
     public function update(Request $request, Brand $brand)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|min:2|max:30',
         ]);
 
         $brand->update($validated);
