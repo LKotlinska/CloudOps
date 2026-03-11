@@ -347,6 +347,10 @@ textarea {
     gap: 0.625rem;
 }
 
+.width-100 {
+    width: 100%;
+}
+
 /* ── NAV LOGOUT BUTTON ── */
 .nav-logout {
     width: 100%;
