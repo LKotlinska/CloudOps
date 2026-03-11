@@ -20,6 +20,7 @@
                 <th scope="col">Brand</th>
                 <th scope="col">Price</th>
                 <th scope="col">Stock</th>
+                <th scope="col">Status</th>
                 <th scope="col"><span class="sr-only">Actions</span></th>
             </tr>
         </thead>
@@ -47,6 +48,14 @@
                             {{ $stockText }}
                         </td>
                         <td>
+                            <span>
+                                <span class="status-dot {{ $product->stock > 0 ? 'active' : 'inactive' }}" aria-hidden="true"></span>
+                                <span>
+                                    {{ $product->stock > 0 ? 'Active' : 'Inactive' }}
+                                </span>
+                            </span>
+                        </td>
+                        <td>
                             <div class="td-actions">
                                 <a href="{{ route('products.edit', $product) }}"
                                     class="btn btn-ghost btn-sm"
@@ -64,7 +73,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="6">
+                        <td colspan="7">
                             <div class="empty-state">
                                 <div class="empty-state-icon">📦</div>
                                 <div class="empty-state-text">No products found.</div>
