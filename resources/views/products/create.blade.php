@@ -74,7 +74,7 @@
                     <!--  Conditionally rendered fields  -->
                     <div id="vape-fields">
 
-                        <label>Refillable *</label>
+                        <label for="has_podsystem">Refillable *</label>
 
                         <input 
                             type="radio"
@@ -117,7 +117,7 @@
                             <span id="puff_count-error" class="form-error" role="alert">⚠ {{ $message }}</span>
                         @enderror
 
-                        <label for="color">Color *</label>
+                        <label for="color_id">Color *</label>
                         <select
                             id="color_id"
                             class="form-input"

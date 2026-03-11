@@ -71,9 +71,11 @@ class HomeController extends Controller
         $colors     = Color::all();
 
         // Count products per category for stats cards
-        $counts = $products
-            ->groupBy(fn($product) => $product->category->name ?? 'Uncategorized')
-            ->map->count();
+        $counts = Product::query()
+            ->join('categories', 'products.category_id', '=', 'categories.id')
+            ->selectRaw('categories.name, count(*) as total')
+            ->groupBy('categories.name')
+            ->pluck('total', 'name');
 
         return view('start-page', compact(
             'products',

@@ -148,7 +148,6 @@
                 <th scope="col" class="column-title">Brand</th>
                 <th scope="col" class="column-title">Price</th>
                 <th scope="col" class="column-title">Stock</th>
-                <th scope="col" class="column-title">Status</th>
                 <th scope="col"><span class="sr-only">Actions</span></th>
             </tr>
         </thead>
@@ -182,16 +181,10 @@
                         <td id="text-sec" class="{{ $stockClass }}" aria-label="Stock: {{ $stockText }}">
                             {{ $stockText }}
                         </td>
-                        <td>
-                            <div class="status-cell">
-                                <span class="status-dot {{ $product->stock > 0 ? 'active' : 'inactive' }}" aria-hidden="true"></span>
-                                <span class="text-secondary">{{ $product->stock > 0 ? 'Active' : 'Inactive' }}</span>
-                            </div>
-                        </td>
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="7">
+                        <td colspan="6">
                             <div class="empty-state">
                                 <div class="empty-state-icon">📦</div>
                                 <div class="empty-state-text">No products found.</div>
