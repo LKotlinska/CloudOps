@@ -93,14 +93,4 @@
 </div>
 
 
-<script>
-    document.querySelectorAll('.clickable-row').forEach(row => {
-        row.addEventListener('click', e => {
-            if (!e.target.closest('a, button, form')) {
-                window.location = row.dataset.href;
-            }
-        });
-    });
-</script>
-
 @endsection
