@@ -33,8 +33,9 @@
                     $catBadges = ['Vape' => 'badge-vape', 'E-Liquid' => 'badge-eliquid', 'Nicotine salt' => 'badge-nicsalt'];
                     $catName = $product->category->name ?? '';
                     @endphp
-                    <tr class="clickable-row" data-href="{{ route('products.show', $product) }}">
+                    <tr class="clickable-row">
                         <td>
+                            <a href="{{ route('products.show', $product) }}" class="row-link" aria-label="View {{ ucwords($product->name) }}"></a>
                             <div class="product-name">{{ ucwords($product->name) }}</div>
                         </td>
                         <td>

@@ -373,6 +373,8 @@ textarea {
     display: flex;
     justify-content: flex-end;
     gap: 0.375rem;
+    position: relative;
+    z-index: 1;
 }
 
 .status-cell {
@@ -458,4 +460,10 @@ textarea {
 
 .clickable-row {
     cursor: pointer;
+    position: relative;
+}
+
+.row-link {
+    position: absolute;
+    inset: 0;
 }

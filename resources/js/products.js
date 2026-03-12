@@ -7,15 +7,6 @@ document.querySelectorAll(".chip").forEach((chip) => {
     });
 });
 
-// ── CLICKABLE ROWS ──
-document.querySelectorAll('.clickable-row').forEach(row => {
-    row.addEventListener('click', e => {
-        if (!e.target.closest('a, button, form')) {
-            window.location = row.dataset.href;
-        }
-    });
-});
-
 // ── VAPE FIELDS TOGGLE (create / edit) ──
 document.addEventListener('DOMContentLoaded', () => {
     const select = document.getElementById('category_id');
