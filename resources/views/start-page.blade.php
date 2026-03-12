@@ -143,13 +143,13 @@
     <table aria-label="Products">
         <thead>
             <tr>
-                <th scope="col" class="column-title">Product</th>
-                <th scope="col" class="column-title">Category</th>
-                <th scope="col" class="column-title">Brand</th>
-                <th scope="col" class="column-title">Flavor</th>
-                <th scope="col" class="column-title">Color</th>
-                <th scope="col" class="column-title">Price</th>
-                <th scope="col" class="column-title">Stock</th>
+                <th scope="col">Product</th>
+                <th scope="col">Category</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Flavor</th>
+                <th scope="col">Color</th>
+                <th scope="col">Price</th>
+                <th scope="col">Stock</th>
             </tr>
         </thead>
         <tbody>
@@ -177,11 +177,20 @@
                                 {{ $catName }}
                             </span>
                         </td>
+<<<<<<< fix/smallfixes
                         <td class="text-secondary">{{ $product->brand->name ?? '—' }}</td>
                         <td class="text-secondary">{{ $product->flavors->pluck('name')->join(', ')}}</td>
                         <td class="text-secondary">{{ $product->productVape->color->name ?? '—' }}</td>
                         <td class="text-secondary">{{ number_format($product->price, 2) }} kr</td>
                         <td id="text-sec" class="{{ $stockClass }}" aria-label="Stock: {{ $stockText }}">
+=======
+                        <td>{{ $product->brand->name ?? '—' }}</td>
+                        <td>{{ $product->flavors->pluck('name')->join(', ')}}</td>
+                        <td>{{ $product->productVape->color->name ?? '—' }}</td>
+                        </td>
+                        <td class=>{{ number_format($product->price, 2) }} kr</td>
+                        <td class="{{ $stockClass }}" aria-label="Stock: {{ $stockText }}">
+>>>>>>> develop
                             {{ $stockText }}
                         </td>
                     </tr>
