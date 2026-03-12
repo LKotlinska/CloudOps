@@ -20,7 +20,7 @@
             <div class="form-grid">
                 <div class="form-field full">
                     <label for="name">
-                        Category name <span class="required-mark">*</span>>
+                        Category name <span class="required-mark">*</span>
                     </label>
                     <input
                         type="text"
