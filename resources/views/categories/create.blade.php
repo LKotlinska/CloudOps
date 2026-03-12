@@ -12,26 +12,26 @@
 <div class="form-page">
     <div class="form-page-card">
         <p class="form-instructions">
-            Fields marked with <span aria-hidden="true">*</span>
-            <span class="sr-only">asterisk</span> are mandatory.
+            Fields marked with an asterisk (<span class="required-mark">*</span>) are mandatory.
         </p>
 
         <form action="{{ route('categories.store') }}" method="POST">
             @csrf
             <div class="form-grid">
                 <div class="form-field full">
-                    <label for="name">Category name</label>
+                    <label for="name">
+                        Category name <span class="required-mark">*</span>>
+                    </label>
                     <input
-                        type="text" 
+                        type="text"
                         id="name"
                         class="form-input"
                         name="name"
                         placeholder="e.g. E-liquid"
                         value="{{ old('name') }}"
-                        required
-                    />
+                        required />
                     @error('name')
-                        <span id="name-error" class="form-error" role="alert">⚠ {{ $message }}</span>
+                    <span id="name-error" class="form-error" role="alert">⚠ {{ $message }}</span>
                     @enderror
                 </div>
             </div>

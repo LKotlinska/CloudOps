@@ -12,8 +12,7 @@
 <div class="form-page">
     <div class="form-page-card">
         <p class="form-instructions">
-            Fields marked with <span aria-hidden="true">*</span>
-            <span class="sr-only">asterisk</span> are mandatory.
+            Fields marked with an asterisk (<span class="required-mark">*</span>) are mandatory.
         </p>
 
         <form action="{{ route('categories.update', $category) }}" method="POST">
@@ -21,7 +20,9 @@
             @method('PUT')
             <div class="form-grid">
                 <div class="form-field full">
-                    <label for="name">Category name</label>
+                    <label for="name">
+                        Category name <span class="required-mark">*</span>
+                    </label>
                     <input
                         type="text"
                         id="name"
@@ -29,8 +30,7 @@
                         name="name"
                         placeholder="e.g. E-liquid"
                         value="{{ $category->name }}"
-                        required
-                    />
+                        required />
                     @error('name')
                     <span id="name-error" class="form-error" role="alert">⚠ {{ $message }}</span>
                     @enderror

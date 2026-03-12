@@ -167,7 +167,7 @@ label {
 fieldset {
     border: none;
     padding: 0;
-    margin: 0;
+    margin-bottom: 20px;
 }
 
 fieldset legend {
@@ -191,6 +191,10 @@ fieldset legend {
     color: var(--color-text-primary);
 }
 
+select {
+    cursor: pointer;
+}
+
 .form-input,
 .form-select,
 .form-textarea {
@@ -198,6 +202,7 @@ fieldset legend {
     border: 1px solid var(--color-border);
     color: var(--color-text-primary);
     padding: 0.625rem 0.8125rem;
+    margin-bottom: 15px;
     border-radius: 7px;
     font-family: var(--font-body);
     font-size: 1rem;
