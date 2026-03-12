@@ -177,20 +177,11 @@
                                 {{ $catName }}
                             </span>
                         </td>
-<<<<<<< fix/smallfixes
-                        <td class="text-secondary">{{ $product->brand->name ?? '—' }}</td>
-                        <td class="text-secondary">{{ $product->flavors->pluck('name')->join(', ')}}</td>
-                        <td class="text-secondary">{{ $product->productVape->color->name ?? '—' }}</td>
-                        <td class="text-secondary">{{ number_format($product->price, 2) }} kr</td>
-                        <td id="text-sec" class="{{ $stockClass }}" aria-label="Stock: {{ $stockText }}">
-=======
                         <td>{{ $product->brand->name ?? '—' }}</td>
                         <td>{{ $product->flavors->pluck('name')->join(', ')}}</td>
                         <td>{{ $product->productVape->color->name ?? '—' }}</td>
-                        </td>
                         <td class=>{{ number_format($product->price, 2) }} kr</td>
                         <td class="{{ $stockClass }}" aria-label="Stock: {{ $stockText }}">
->>>>>>> develop
                             {{ $stockText }}
                         </td>
                     </tr>
