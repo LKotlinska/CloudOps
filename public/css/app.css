@@ -69,3 +69,28 @@ body {
 select option {
     background: var(--color-bg-input);
 }
+
+/* ── SCROLLBAR ── */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #3a3a44 var(--color-bg-input);
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--color-bg-input);
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #585865;
+    border-radius: 4px;
+    border: 2px solid var(--color-bg-input);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #585865;
+}

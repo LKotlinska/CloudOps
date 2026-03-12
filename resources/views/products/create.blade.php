@@ -73,29 +73,31 @@
                     <!--  Conditionally rendered fields  -->
                     <div id="vape-fields">
 
-                        <label for="has_podsystem">Refillable <span class="required-mark">*</span></label>
+                        <fieldset>
+                            <legend>Refillable <span class="required-mark">*</span></legend>
 
-                        <input
-                            type="radio"
-                            id="has_podsystem_yes"
-                            class="form-input"
-                            name="has_podsystem"
-                            value="1"
-                            {{ old('has_podsystem') == '1' ? 'checked' : '' }} />
-                        <label for="has_podsystem_yes">Yes</label>
+                            <div class="radio-group">
+                                <input
+                                    type="radio"
+                                    id="has_podsystem_yes"
+                                    name="has_podsystem"
+                                    value="1"
+                                    {{ old('has_podsystem') == '1' ? 'checked' : '' }} />
+                                <label for="has_podsystem_yes">Yes</label>
 
-                        <input
-                            type="radio"
-                            id="has_podsystem_no"
-                            class="form-input"
-                            name="has_podsystem"
-                            value="0"
-                            {{ old('has_podsystem') == '0' ? 'checked' : '' }} />
-                        <label for="has_podsystem_no">No</label>
+                                <input
+                                    type="radio"
+                                    id="has_podsystem_no"
+                                    name="has_podsystem"
+                                    value="0"
+                                    {{ old('has_podsystem') == '0' ? 'checked' : '' }} />
+                                <label for="has_podsystem_no">No</label>
+                            </div>
 
-                        @error('has_podsystem')
-                        <span id="has_podsystem-error" class="form-error" role="alert">⚠ {{ $message }}</span>
-                        @enderror
+                            @error('has_podsystem')
+                            <span id="has_podsystem-error" class="form-error" role="alert">⚠ {{ $message }}</span>
+                            @enderror
+                        </fieldset>
 
                         <label for="puff_count">Puff count <span class="required-mark">*</span></label>
                         <input

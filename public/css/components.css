@@ -177,6 +177,11 @@ fieldset legend {
     flex-wrap: wrap;
 }
 
+.radio-group input[type="radio"],
+.radio-group label {
+    cursor: pointer;
+}
+
 .radio-group label {
     text-transform: none;
     letter-spacing: 0;
