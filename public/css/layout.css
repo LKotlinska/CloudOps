@@ -1,13 +1,14 @@
 /* ── SIDEBAR ── */
 aside {
     width: 13.75rem;
-    min-height: 100vh;
+    height: 100vh;
     background: var(--color-bg-card);
     border-right: 1px solid var(--color-border);
     display: flex;
     flex-direction: column;
     padding: 1.5rem 0;
     flex-shrink: 0;
+    overflow-y: auto;
 }
 
 .logo {
