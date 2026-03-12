@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'New Product')
-@section('page-title', 'New Product')
+@section('title', 'Edit Product')
+@section('page-title', 'Edit Product')
 
 @section('header-actions')
 <a href="{{ route('products.index') }}" class="btn btn-ghost">← Back to products</a>
