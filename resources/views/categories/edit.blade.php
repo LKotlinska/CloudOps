@@ -45,7 +45,7 @@
         </form>
 
         <div class="form-page-actions">
-            <div class="d-flex gap-md">>
+            <div class="d-flex gap-md">
                 <a href="{{ route('categories.index') }}" class="btn btn-ghost">Cancel</a>
                 <button type="submit" form="edit-category-form" class="btn btn-primary">Save changes</button>
             </div>
