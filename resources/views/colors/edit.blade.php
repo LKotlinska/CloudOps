@@ -15,7 +15,7 @@
             Fields marked with an asterisk (<span class="required-mark">*</span>) are mandatory.
         </p>
 
-        <form action="{{ route('colors.update', $color) }}" method="POST">
+        <form id="edit-color-form" action="{{ route('colors.update', $color) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -37,20 +37,21 @@
                     @enderror
                 </div>
             </div>
-
-            <div class="form-page-actions">
-                <div class="d-flex gap-md">
-                    <a href="{{ route('colors.index') }}" class="btn btn-ghost">Cancel</a>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
         </form>
-        <form action="{{ route('colors.destroy', $color) }}" method="POST"
+
+        <form id="delete-color-form" action="{{ route('colors.destroy', $color) }}" method="POST"
             onsubmit="return confirm('Delete {{ addslashes($color->name) }}? This cannot be undone.')">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger">✕ Delete color</button>
         </form>
+
+        <div class="form-page-actions">
+            <div class="d-flex gap-md">
+                <a href="{{ route('colors.index') }}" class="btn btn-ghost">Cancel</a>
+                <button type="submit" form="edit-color-form" class="btn btn-primary">Save changes</button>
+            </div>
+            <button type="submit" form="delete-color-form" class="btn btn-danger">✕ Delete color</button>
+        </div>
     </div>
 </div>
 

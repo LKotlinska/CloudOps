@@ -5,21 +5,14 @@
 
 @section('header-actions')
 <a href="{{ route('products.index') }}" class="btn btn-ghost">← Back to products</a>
-<a href="{{ route('products.edit', $product) }}" class="btn btn-ghost">✎ Edit</a>
-<form action="{{ route('products.destroy', $product) }}" method="POST"
-    onsubmit="return confirm('Delete {{ addslashes($product->name) }}?')">
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="btn btn-danger btn-sm">✕ Delete</button>
-</form>
 @endsection
 
 @section('content')
 
 @php
-    $catName = $product->category->name ?? '';
-    $catBadges = ['Vape' => 'badge-vape', 'E-liquid' => 'badge-eliquid', 'Nic Salt' => 'badge-nicsalt'];
-    $catIcons  = ['Vape' => '🌬️', 'E-liquid' => '💧', 'Nic Salt' => '⚗️'];
+$catName = $product->category->name ?? '';
+$catBadges = ['Vape' => 'badge-vape', 'E-liquid' => 'badge-eliquid', 'Nic Salt' => 'badge-nicsalt'];
+$catIcons = ['Vape' => '🌬️', 'E-liquid' => '💧', 'Nic Salt' => '⚗️'];
 @endphp
 
 <div class="form-page">
@@ -87,7 +80,7 @@
                         <td>
                             <div class="chip-wrap">
                                 @foreach($product->flavors as $flavor)
-                                    <span class="chip flavor-chip">{{ ucfirst($flavor->name) }}</span>
+                                <span class="chip flavor-chip">{{ ucfirst($flavor->name) }}</span>
                                 @endforeach
                             </div>
                         </td>
