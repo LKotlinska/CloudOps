@@ -15,7 +15,7 @@
             Fields marked with an asterisk (<span class="required-mark">*</span>) are mandatory.
         </p>
 
-        <form action="{{ route('flavors.update', $flavor) }}" method="POST">
+        <form id="edit-flavor-form" action="{{ route('flavors.update', $flavor) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -37,20 +37,21 @@
                     @enderror
                 </div>
             </div>
-
-            <div class="form-page-actions">
-                <div class="d-flex gap-md">
-                    <a href="{{ route('flavors.index') }}" class="btn btn-ghost">Cancel</a>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
         </form>
-        <form action="{{ route('flavors.destroy', $flavor) }}" method="POST"
+
+        <form id="delete-flavor-form" action="{{ route('flavors.destroy', $flavor) }}" method="POST"
             onsubmit="return confirm('Delete {{ addslashes($flavor->name) }}? This cannot be undone.')">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger">✕ Delete flavor</button>
         </form>
+
+        <div class="form-page-actions">
+            <div class="d-flex gap-md">
+                <a href="{{ route('flavors.index') }}" class="btn btn-ghost">Cancel</a>
+                <button type="submit" form="edit-flavor-form" class="btn btn-primary">Save changes</button>
+            </div>
+            <button type="submit" form="delete-flavor-form" class="btn btn-danger">✕ Delete flavor</button>
+        </div>
     </div>
 </div>
 

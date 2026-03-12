@@ -15,7 +15,7 @@
             Fields marked with an asterisk (<span class="required-mark">*</span>) are mandatory.
         </p>
 
-        <form action="{{ route('categories.update', $category) }}" method="POST">
+        <form id="edit-category-form" action="{{ route('categories.update', $category) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-grid">
@@ -36,23 +36,21 @@
                     @enderror
                 </div>
             </div>
-
-            <div class="form-page-actions">
-
-                <form action="{{ route('categories.destroy', $category) }}" method="POST"
-                    onsubmit="return confirm('Delete {{ addslashes($category->name) }}? This cannot be undone.')">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">✕ Delete category</button>
-                </form>
-
-                <div>
-                    <a href="{{ route('categories.index') }}" class="btn btn-ghost">Cancel</a>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-
-            </div>
         </form>
+
+        <form id="delete-category-form" action="{{ route('categories.destroy', $category) }}" method="POST"
+            onsubmit="return confirm('Delete {{ addslashes($category->name) }}? This cannot be undone.')">
+            @csrf
+            @method('DELETE')
+        </form>
+
+        <div class="form-page-actions">
+            <div>
+                <a href="{{ route('categories.index') }}" class="btn btn-ghost">Cancel</a>
+                <button type="submit" form="edit-category-form" class="btn btn-primary">Save changes</button>
+            </div>
+            <button type="submit" form="delete-category-form" class="btn btn-danger">✕ Delete category</button>
+        </div>
     </div>
 </div>
 

@@ -15,7 +15,7 @@
             Fields marked with an asterisk (<span class="required-mark">*</span>) are mandatory.
         </p>
 
-        <form action="{{ route('brands.update', $brand) }}" method="POST">
+        <form id="edit-brand-form" action="{{ route('brands.update', $brand) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -37,23 +37,22 @@
                     @enderror
                 </div>
             </div>
-
-            <div class="form-page-actions">
-                <div class="d-flex gap-md">
-                    <a href="{{ route('brands.index') }}" class="btn btn-ghost">Cancel</a>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
         </form>
 
         {{-- Delete outside the update form --}}
-        <form action="{{ route('brands.destroy', $brand) }}" method="POST"
+        <form id="delete-brand-form" action="{{ route('brands.destroy', $brand) }}" method="POST"
             onsubmit="return confirm('Delete {{ addslashes($brand->name) }}? This cannot be undone.')">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger">✕ Delete brand</button>
         </form>
 
+        <div class="form-page-actions">
+            <div class="d-flex gap-md">
+                <a href="{{ route('brands.index') }}" class="btn btn-ghost">Cancel</a>
+                <button type="submit" form="edit-brand-form" class="btn btn-primary">Save changes</button>
+            </div>
+            <button type="submit" form="delete-brand-form" class="btn btn-danger">✕ Delete brand</button>
+        </div>
     </div>
 </div>
 
