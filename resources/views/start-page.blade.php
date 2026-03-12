@@ -180,7 +180,6 @@
                         <td>{{ $product->brand->name ?? '—' }}</td>
                         <td>{{ $product->flavors->pluck('name')->join(', ')}}</td>
                         <td>{{ $product->productVape->color->name ?? '—' }}</td>
-                        </td>
                         <td class=>{{ number_format($product->price, 2) }} kr</td>
                         <td class="{{ $stockClass }}" aria-label="Stock: {{ $stockText }}">
                             {{ $stockText }}

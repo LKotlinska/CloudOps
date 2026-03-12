@@ -46,7 +46,7 @@
                 <td colspan="3">
                     <div class="empty-state">
                         <div class="empty-state-icon">◉</div>
-                        <div class="empty-state-text">No brands found.</div>
+                        <div class="empty-state-text">No categories found.</div>
                     </div>
                 </td>
             </tr>

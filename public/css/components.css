@@ -47,6 +47,9 @@
 .btn-sm {
     padding: 0.3125rem 0.625rem;
     font-size: 1rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 /* ── BADGES ── */
@@ -112,17 +115,6 @@
     color: var(--color-text-secondary);
     cursor: pointer;
     transition: all 0.12s;
-}
-
-.chip:hover {
-    border-color: var(--color-accent-primary);
-    color: var(--color-accent-purple);
-}
-
-.chip.selected {
-    background: var(--color-accent-primary);
-    color: #fff;
-    border-color: var(--color-accent-primary);
 }
 
 .chip:hover {
@@ -275,7 +267,7 @@ textarea {
 
 .product-view {
     border: none;
-    padding-top: none;
+    padding-top: 0;
 }
 
 /* ── ALERT / FLASH MESSAGES ── */

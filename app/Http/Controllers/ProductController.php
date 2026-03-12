@@ -80,7 +80,7 @@ class ProductController extends Controller
 
         $vapeCategory = Category::where('name', 'Vape')->first();
 
-        if ($newProduct['category_id'] == $vapeCategory->id) {
+        if ($newProduct['category_id'] == $vapeCategory?->id) {
             $product->productVape()->create([
                 'has_podsystem' => $request->boolean('has_podsystem'),
                 'puff_count'    => Arr::get($newProduct, 'puff_count'),
@@ -151,7 +151,7 @@ class ProductController extends Controller
 
         $vapeCategory = Category::where('name', 'Vape')->first();
 
-        if ($updatedProduct['category_id'] == $vapeCategory->id) {
+        if ($updatedProduct['category_id'] == $vapeCategory?->id) {
             $product->productVape()->updateOrCreate(
                 ['product_id' => $product->id],
                 [

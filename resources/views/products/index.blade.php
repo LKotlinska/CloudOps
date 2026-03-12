@@ -57,6 +57,10 @@
                         </td>
                         <td>
                             <div class="td-actions">
+                                <a href="{{ route('products.show', $product) }}"
+                                    class="btn btn-ghost btn-sm"
+                                    aria-label="View {{ ucwords($product->name) }}">👁 View</a>
+
                                 <a href="{{ route('products.edit', $product) }}"
                                     class="btn btn-ghost btn-sm"
                                     aria-label="Edit {{ ucwords($product->name) }}">✎ Edit</a>
