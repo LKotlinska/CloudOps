@@ -15,7 +15,7 @@
             Fields marked with an asterisk (<span class="required-mark">*</span>) are mandatory.
         </p>
 
-        <form id="add-form" action="{{ route('products.update', $product) }}" method="POST">
+        <form id="edit-product-form" action="{{ route('products.update', $product) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -230,11 +230,22 @@
                 </div>
             </div>
 
-            <div class="form-page-actions">
-                <a href="{{ route('products.index') }}" class="btn btn-ghost">Cancel</a>
-                <button type="submit" class="btn btn-primary">Save product</button>
-            </div>
         </form>
+
+        {{-- Delete outside the update form --}}
+        <form id="delete-product-form" action="{{ route('products.destroy', $product) }}" method="POST"
+            onsubmit="return confirm('Delete {{ addslashes($product->name) }}? This cannot be undone.')">
+            @csrf
+            @method('DELETE')
+        </form>
+
+        <div class="form-page-actions">
+            <div class="d-flex gap-md">
+                <a href="{{ route('products.index') }}" class="btn btn-ghost">Cancel</a>
+                <button type="submit" form="edit-product-form" class="btn btn-primary">Save changes</button>
+            </div>
+            <button type="submit" form="delete-product-form" class="btn btn-danger">✕ Delete product</button>
+        </div>
     </div>
 </div>
 
