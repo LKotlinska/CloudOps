@@ -238,29 +238,4 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const select = document.getElementById('category_id');
-
-        select.addEventListener('change', toggleVapeFields);
-
-        toggleVapeFields();
-    });
-
-    function toggleVapeFields() {
-        const select = document.getElementById('category_id');
-        const selected = select.options[select.selectedIndex].text.toLowerCase();
-        const vapeFields = document.getElementById('vape-fields');
-        const isVape = selected === 'vape';
-
-        vapeFields.style.display = isVape ? 'block' : 'none';
-
-        // Fields need to be disabled, so we don't send them when category isn't vape
-        vapeFields.querySelectorAll('input, select').forEach(field => {
-            field.disabled = isVape ? false : true;
-        });
-
-    }
-</script>
-
 @endsection

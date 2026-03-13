@@ -1,4 +1,5 @@
 import './bootstrap';
+import './products';
 
 // Alert fade
 document.addEventListener('DOMContentLoaded', () => {
