@@ -20,7 +20,7 @@ class ProductSeeder extends Seeder
         $flavorIds = Flavor::pluck('id');
 
         $products = Product::factory()
-            ->count(50)
+            ->count(350)
             ->create([
                 'category_id' => fn() => $categoryIds->random(),
                 'brand_id' => fn() => $brandIds->random(),
