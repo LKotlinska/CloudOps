@@ -150,6 +150,7 @@
                 <th scope="col">Color</th>
                 <th scope="col">Price</th>
                 <th scope="col">Stock</th>
+                <th scope="col"><span class="sr-only">Actions</span></th>
             </tr>
         </thead>
         <tbody>
@@ -183,6 +184,13 @@
                         <td class=>{{ number_format($product->price, 2) }} kr</td>
                         <td class="{{ $stockClass }}" aria-label="Stock: {{ $stockText }}">
                             {{ $stockText }}
+                        </td>
+                        <td>
+                            <div class="td-actions">
+                                <a href="{{ route('products.show', $product) }}"
+                                    class="btn btn-primary btn-sm"
+                                    aria-label="View {{ ucwords($product->name) }}">👁 View</a>
+                            </div>
                         </td>
                     </tr>
                     @empty
