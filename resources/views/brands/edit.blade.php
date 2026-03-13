@@ -31,7 +31,9 @@
                         value="{{ old('name', $brand->name) }}"
                         required
                         aria-required="true"
+                        aria-invalid="{{ $errors->has('name') ? 'true' : 'false' }}"
                         aria-describedby="name-error">
+
                     @error('name')
                     <span id="name-error" class="form-error" role="alert">⚠ {{ $message }}</span>
                     @enderror

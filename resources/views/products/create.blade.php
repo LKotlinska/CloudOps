@@ -31,6 +31,8 @@
                         name="name"
                         placeholder="e.g. Vape startkit"
                         value="{{ old('name') }}"
+                        aria-describedby="name-error"
+                        aria-invalid="{{ $errors->has('name') ? 'true' : 'false' }}"
                         required />
 
                     @error('name')
@@ -43,6 +45,8 @@
                         class="form-input"
                         name="description"
                         placeholder="e.g. Vape startkit"
+                        aria-describedby="description-error"
+                        aria-invalid="{{ $errors->has('description') ? 'true' : 'false' }}"
                         required>{{ old('description') }}</textarea>
 
                     @error('description')
@@ -54,6 +58,8 @@
                         id="category_id"
                         class="form-input"
                         name="category_id"
+                        aria-describedby="category-error"
+                        aria-invalid="{{ $errors->has('category_id') ? 'true' : 'false' }}"
                         required>
 
                         <option value="" disabled selected>Select your option</option>
@@ -82,7 +88,9 @@
                                     id="has_podsystem_yes"
                                     name="has_podsystem"
                                     value="1"
-                                    {{ old('has_podsystem') == '1' ? 'checked' : '' }} />
+                                    {{ old('has_podsystem') == '1' ? 'checked' : '' }}
+                                    aria-describedby="has_podsystem-error"
+                                    aria-invalid="{{ $errors->has('has_podsystem') ? 'true' : 'false' }}" />
                                 <label for="has_podsystem_yes">Yes</label>
 
                                 <input
@@ -90,7 +98,9 @@
                                     id="has_podsystem_no"
                                     name="has_podsystem"
                                     value="0"
-                                    {{ old('has_podsystem') == '0' ? 'checked' : '' }} />
+                                    {{ old('has_podsystem') == '0' ? 'checked' : '' }}
+                                    aria-describedby="has_podsystem-error"
+                                    aria-invalid="{{ $errors->has('has_podsystem') ? 'true' : 'false' }}" />
                                 <label for="has_podsystem_no">No</label>
                             </div>
 
@@ -109,6 +119,8 @@
                             step="1"
                             placeholder="e.g. 1000 "
                             value="{{ old('puff_count') }}"
+                            aria-describedby="puff_count-error"
+                            aria-invalid="{{ $errors->has('puff_count') ? 'true' : 'false' }}"
                             required />
 
                         @error('puff_count')
@@ -120,6 +132,8 @@
                             id="color_id"
                             class="form-input"
                             name="color_id"
+                            aria-describedby="color-error"
+                            aria-invalid="{{ $errors->has('color_id') ? 'true' : 'false' }}"
                             required>
 
                             <option value="" disabled selected>Select your option</option>
@@ -148,6 +162,8 @@
                         step="any"
                         placeholder="e.g. 10.90 "
                         value="{{ old('price') }}"
+                        aria-describedby="price-error"
+                        aria-invalid="{{ $errors->has('price') ? 'true' : 'false' }}"
                         required />
 
                     @error('price')
@@ -162,6 +178,8 @@
                         name="stock"
                         placeholder="e.g. 12"
                         value="{{ old('stock') }}"
+                        aria-describedby="stock-error"
+                        aria-invalid="{{ $errors->has('stock') ? 'true' : 'false' }}"
                         min="0" />
 
                     @error('stock')
@@ -173,6 +191,8 @@
                         id="brand_id"
                         class="form-input"
                         name="brand_id"
+                        aria-describedby="brand-error"
+                        aria-invalid="{{ $errors->has('brand_id') ? 'true' : 'false' }}"
                         required>
 
                         <option value="" disabled selected>Select your option</option>
@@ -193,7 +213,9 @@
                     <select
                         id="flavor_id"
                         class="form-input"
-                        name="flavor_id">
+                        name="flavor_id"
+                        aria-describedby="flavor-error"
+                        aria-invalid="{{ $errors->has('flavor_id') ? 'true' : 'false' }}">
 
                         <option value="" selected>None</option>
 
@@ -217,6 +239,8 @@
                         name="nicotine_strength_mg"
                         min="0"
                         placeholder="e.g. 10"
+                        aria-describedby="nicotine_strength-error"
+                        aria-invalid="{{ $errors->has('nicotine_strength_mg') ? 'true' : 'false' }}"
                         value="{{ old('nicotine_strength_mg') }}" />
 
                     @error('nicotine_strength_mg')
@@ -231,7 +255,9 @@
                         name="volume_ml"
                         min="1"
                         placeholder="e.g. 25"
-                        value="{{ old('volume_ml') }}" />
+                        value="{{ old('volume_ml') }}"
+                        aria-describedby="volume-error"
+                        aria-invalid="{{ $errors->has('volume_ml') ? 'true' : 'false' }}" />
 
                     @error('volume_ml')
                     <span id="volume-error" class="form-error" role="alert">⚠ {{ $message }}</span>

@@ -21,7 +21,6 @@
         <div class="login">
             <h1>Welcome</h1>
             <p>Sign in to your admin account</p>
-            @include('errors')
             <form action="/login" method="POST">
                 @csrf
 
@@ -31,7 +30,12 @@
                     class="form-input"
                     name="email"
                     placeholder="admin@cloudops.se"
-                    value="{{ old('email') }}">
+                    value="{{ old('email') }}"
+                    aria-describedby="email-error"
+                    aria-invalid="{{ $errors->has('email') ? 'true' : 'false' }}">
+                @error('email')
+                <span id="email-error" class="form-error" role="alert">⚠ {{ $message }}</span>
+                @enderror
 
                 <label for="password">Password</label>
                 <input type="password"

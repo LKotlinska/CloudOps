@@ -29,7 +29,9 @@
                         class="form-input"
                         name="name"
                         placeholder="e.g. E-liquid"
-                        value="{{ $category->name }}"
+                        value="{{ old('name', $category->name) }}"
+                        aria-describedby="name-error"
+                        aria-invalid="{{ $errors->has('name') ? 'true' : 'false' }}"
                         required />
                     @error('name')
                     <span id="name-error" class="form-error" role="alert">⚠ {{ $message }}</span>

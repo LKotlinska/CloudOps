@@ -31,6 +31,7 @@
                         required
                         aria-required="true"
                         aria-describedby="name-error"
+                        aria-invalid="{{ $errors->has('name') ? 'true' : 'false' }}"
                         placeholder="e.g. Strawberry">
                     @error('name')
                     <span id="name-error" class="form-error" role="alert">⚠ {{ $message }}</span>
