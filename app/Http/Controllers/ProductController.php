@@ -68,7 +68,7 @@ class ProductController extends Controller
 
             // Conditional fields - vape specific
             'has_podsystem' => 'sometimes|boolean',
-            'puff_count' => 'sometimes|integer|min:1',
+            'puff_count' => 'sometimes|integer|min:1|max:4294967295',
             'color_id' => 'sometimes|exists:colors,id'
         ]);
 
@@ -141,7 +141,7 @@ class ProductController extends Controller
 
             // Conditional fields - vape specific
             'has_podsystem' => 'sometimes|boolean',
-            'puff_count' => 'sometimes|integer|min:1',
+            'puff_count' => 'sometimes|integer|min:1|max:4294967295',
             'color_id' => 'sometimes|exists:colors,id'
         ]);
 

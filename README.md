@@ -195,7 +195,10 @@ A list of things that could be added or improved. Great starting points if you w
 
 - Filters reset whenever you navigating between pages of results. Keeping the active filters in the URL would fix both of these.
 - There is no way to sort the product list by clicking a column header (e.g. sort by price or name).
+- A sort function for price - low to high, and product name - A to Z, would make it easier to find a specific product.
 - You can only delete or edit one product at a time. A "select multiple and delete" option would save time.
 - Products have no photos. Adding image upload support would make the catalog more useful.
 - There is no page for managing users,so you can only add the default one through the database seeder. A simple admin screen to create, edit, or deactivate users would be helpful.
 - Dropdown fields (brand, flavor, color) use a plain `<select>` element. Replacing these with a searchable dropdown would make it much easier to find the right option when the list gets long.
+- There is no way to edit or delete a product form the overview. Adding edit and delete buttons or link the products to their respective page for editing/deleting would make it easier to find a product to edit. An alternative could be to merge the overview and products pages to one page.
+- The delete confirmation uses the browser's built-in `confirm()` dialog, which cannot be styled. A custom modal would allow for a more consistent look and feel.
