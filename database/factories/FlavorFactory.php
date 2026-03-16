@@ -17,7 +17,7 @@ class FlavorFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->randomElement([
+            'name' => $this->faker->randomElement([
                 // Fruits
                 'Mango Tango',
                 'Strawberry Fields',
